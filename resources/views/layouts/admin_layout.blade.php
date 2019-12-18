@@ -36,6 +36,7 @@
         <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>
       </a>
 
+
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -54,13 +55,11 @@
           <span>Dashboard</span></a>
       </li>
 
-      
-    
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-
+        <div class="sidebar-heading">
+        Actions
+      </div>
+            <!-- Divider -->
+      <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Tables -->
       <li class="nav-item
@@ -71,17 +70,17 @@
       ">
         <a class="nav-link" href="{{route('create_user')}}">
           <i class="fas fa-fw fa-user-plus"></i>
-          <span>Create User</span></a>
+          <span>Add User</span></a>
       </li>
-
+            <!-- Divider -->
+      <hr class="sidebar-divider my-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-fw fa-power-off"></i>
           <span>Logout</span></a>
       </li>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
