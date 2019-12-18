@@ -11,9 +11,9 @@ class AdminController extends Controller
    	return view('admin');
    }
 
-   public function table()
+   public function create_user()
    {
-   	return view('table');
+   	return view('admin.create_user');
    }
    
 }

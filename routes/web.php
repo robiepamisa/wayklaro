@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/table', 'AdminController@table')->name('table');
+Route::get('/admin', 'AdminController@index')->name('dashboard');
+Route::get('/create_user', 'AdminController@create_user')->name('create_user');
