@@ -22,6 +22,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        
+        $checkSuccess = DB::table('users')->insert(['fname'=>$request['fname'],'lname'=>$request['lname'],'email'=>$request['email'],'password'=>$request['password']]);
+        var_dump($checkSuccess);die();
     }
 }
