@@ -26,3 +26,5 @@ Route::get("/login",function(){
 Route::get("/register",function(){
     return view('register');
 });
+Route::get('/user','UserController@index')->name('user');
+Route::get('/view_tickets','UserController@view_tickets')->name('view_tickets');
