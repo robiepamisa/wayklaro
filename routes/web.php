@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/admin', 'AdminController@index')->name('dashboard');
 Route::get('/create_user', 'AdminController@create_user')->name('create_user');
-Route::POST('/loginme', 'UserController@login');
-Route::POST('/registerme', 'UserController@register');
+Route::POST('/loginme', 'LoginController@login');
+Route::POST('/registerme', 'LoginController@register');
 Route::get("/login",function(){
     return view('login');
 });
