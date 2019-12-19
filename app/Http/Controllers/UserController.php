@@ -21,6 +21,7 @@ class UserController extends Controller
         }
     }
 
+<<<<<<< HEAD
 
    public function index()
     {
@@ -34,4 +35,11 @@ class UserController extends Controller
 
 
 
+=======
+    public function register(Request $request)
+    {
+        $checkSuccess = DB::table('users')->insert(['fname'=>$request['fname'],'lname'=>$request['lname'],'email'=>$request['email'],'password'=>$request['password']]);
+        var_dump($checkSuccess);die();
+    }
+>>>>>>> cf13b8c15dcb4b2bc1f989dd8efa374404663836
 }

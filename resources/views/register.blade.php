@@ -35,43 +35,35 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
-              <form class="user">
+              <form class="user" action="{{url('/registerme')}}" method="POST">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" class="form-control form-control-user" name="fname" id="exampleFirstName" placeholder="First Name">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                    <input type="text" class="form-control form-control-user" name="lname" id="exampleLastName" placeholder="Last Name">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                  <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" class="form-control form-control-user" name="password" id="inputPassword" placeholder="Password">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                    <input type="password" class="form-control form-control-user" id="repeatPassword" placeholder="Repeat Password">
                   </div>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                  Register Account
-                </a>
+                <input id="registerButton" style="display:none;" type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
+                
                 <hr>
-                <a href="index.html" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Register with Google
-                </a>
-                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                  <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                </a>
+                
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.html">Already have an account? Login!</a>
+                <a class="small" href="{{url('/login')}}">Already have an account? Login!</a>
               </div>
             </div>
           </div>
@@ -90,7 +82,26 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
+    <script>
+    $(document).ready(function()
+    {
+        $("#repeatPassword").keyup(function()
+        {
+            if($("#repeatPassword").val() === $("#inputPassword").val())
+            {
+                
+                document.getElementById('registerButton').style.display = "block";
+                $("#repeatPassword").addClass("is-valid").removeClass('is-invalid');
+                      
+            }
+            else
+            {
+                document.getElementById('registerButton').style.display = "none";
+                $("#repeatPassword").addClass("is-invalid").removeClass('is-valid');
+            }
+        
+        });
+    });
+    </script>
 </body>
-
 </html>
