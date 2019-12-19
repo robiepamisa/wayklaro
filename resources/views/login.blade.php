@@ -48,7 +48,9 @@
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" name="password" id="exampleInputPassword" placeholder="Password" required>
+                      
                     </div>
+                   
                     
                     <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
                       
@@ -56,11 +58,9 @@
                     
                   </form>
                   <hr>
+                  
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="{{url('/register')}}">Create an Account!</a>
                   </div>
                 </div>
               </div>

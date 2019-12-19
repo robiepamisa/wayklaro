@@ -19,4 +19,9 @@ class UserController extends Controller
             echo"Login failed wrong data passed";
         }
     }
+
+    public function register(Request $request)
+    {
+        
+    }
 }
