@@ -33,7 +33,7 @@ class AddRoleDataToRoleTable extends Migration
      */
     public function down()
     {
-        DB::table('role')->where('role','=','admin')->delete();
+         
         DB::table('role')->where('role','=','employee')->delete();
         DB::table('role')->where('role','=','user')->delete();
     }

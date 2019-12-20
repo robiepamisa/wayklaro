@@ -37,6 +37,6 @@ class AddPriorityDataTable extends Migration
     {
        DB::table('priority')->where('priority','=','LESS')->delete();
        DB::table('priority')->where('priority','=','NORMAL')->delete();
-       DB::table('priority')->where('priority','=','HIGH')->delete();
+       DB::table('priority')->where('priority','=','HIGH')-> delete();
     }
 }
