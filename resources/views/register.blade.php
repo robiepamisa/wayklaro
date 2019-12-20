@@ -50,7 +50,8 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control form-control-user" name="password"  required minlength="8" id="inputPassword" placeholder="Password">
+                    <p class="passwordVerification" id="passwordHint">The password must be at least 8 characters long.</p>
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="repeatPassword" placeholder="Repeat Password">
