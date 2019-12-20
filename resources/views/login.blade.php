@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +39,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-                  <form class="user" action="{{url('/loginme')}}" method=POST>
+                  <form class="user" action="{{url('/login')}}" method=POST>
                     <div class="form-group">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                       <input type="email" class="form-control form-control-user" name="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
