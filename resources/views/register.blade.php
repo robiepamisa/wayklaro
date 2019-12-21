@@ -35,7 +35,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
               </div>
-              <form class="user" action="{{url('/registerme')}}" method="POST">
+              <form class="user" action="{{url('/register')}}" method="POST">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">

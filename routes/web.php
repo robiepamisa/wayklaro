@@ -17,14 +17,23 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth','admin']],function(){
 
-Route::get('/admin', 'AdminController@index')->name('dashboard');
-Route::get('/create_user', 'AdminController@create_user')->name('create_user');
+    Route::get('/admin', 'AdminController@index')->name('dashboard');
+    Route::get('/create_user', 'AdminController@create_user')->name('create_user');
+    
+});
 
 
 Route::POST('/login', 'LoginController@login');
-Route::POST('/register', 'LoginController@register');
 Route::get("/login","LoginController@showLoginForm");
+
+Route::POST('/register', 'LoginController@register');
 Route::get("/register","LoginController@showRegisterForm");
+
+// Route::group(['middleware' => ['auth','user']],function(){
+
 Route::get('/user','UserController@index')->name('user');
-Route::get('/view_tickets','UserController@view_tickets')->name('view_tickets');
+Route::get('/user/view_tickets','UserController@view_tickets')->name('view_tickets');
+
+// });
