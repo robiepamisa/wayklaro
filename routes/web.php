@@ -17,15 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/admin', 'AdminController@index')->name('dashboard');
 Route::get('/create_user', 'AdminController@create_user')->name('create_user');
-Route::POST('/loginme', 'LoginController@login');
-Route::POST('/registerme', 'LoginController@register');
-Route::get("/login",function(){
-    return view('login');
-});
-Route::get("/register",function(){
-    return view('register');
-});
+
+
+Route::POST('/login', 'LoginController@login');
+Route::POST('/register', 'LoginController@register');
+Route::get("/login","LoginController@showLoginForm");
+Route::get("/register","LoginController@showRegisterForm");
 Route::get('/user','UserController@index')->name('user');
 Route::get('/view_tickets','UserController@view_tickets')->name('view_tickets');
