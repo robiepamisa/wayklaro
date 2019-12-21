@@ -17,6 +17,8 @@ class CreateTicketsTable extends Migration
             $table->bigIncrements('ticket_id');
             $table->string('subject');
             $table->string('description');
+            $table->integer('priority_id');
+            $table->integer('status_id');
             $table->timestamps();
         });
     }
