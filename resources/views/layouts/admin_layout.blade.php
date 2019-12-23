@@ -12,11 +12,11 @@
   <title>Project-Sekido</title>
 
   <!-- Custom fonts for this template-->
-  <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -29,15 +29,13 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>
+        <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>       
       </a>
 
-
-      <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <?php
@@ -50,9 +48,9 @@
       active
       @endif
       ">
-        <a class="nav-link" href="{{route('dashboard')}}">
+        <a class="nav-link" href="{{ route('dashboard') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Manage Tickets</span></a>
       </li>
 
         <div class="sidebar-heading">
@@ -63,14 +61,14 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item
-      @if($segment=='create_user')
+      @if($segment=='manage_users')
       active
       @endif
 
       ">
-        <a class="nav-link" href="{{route('create_user')}}">
+        <a class="nav-link" href="{{ route('manage_users.index') }}">
           <i class="fas fa-fw fa-user-plus"></i>
-          <span>Add User</span></a>
+          <span>Manage users</span></a>
       </li>
             <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -108,7 +106,22 @@
           <!-- !!!removed -->
 
           <!-- Topbar Navbar -->
-          
+          <ul class="navbar-nav ml-auto">
+            
+            <!-- Nav Item - Messages -->
+            <li class="nav-item" aria-haspopup="true" aria-expanded="false" v-pre>
+                                 Hello,
+                                    {{ Auth::user()->name }} 
+                                
+
+             </li>               
+
+            
+
+            <!-- Nav Item - User Information -->
+            
+
+          </ul>
 
         </nav>
         <!-- End of Topbar -->
@@ -155,33 +168,39 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="{{url('/login')}}">Logout</a>
+          <a class="btn btn-primary" href="{{ route('logout') }}"onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-  <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+  <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
 
   <!-- Page level plugins -->
-  <script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/chart.js/Chart.min.js') }}"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-  <script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
-  <script src="{{ asset('js/demo/datatables-demo.js') }}"></script>
+  <script src="{{ asset('assets/js/demo/chart-area-demo.js') }}"></script>
+  <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
+  <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
 
   <!-- Page level plugins -->
-  <script src="{{ asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
-  <script src="{{ asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+  <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
 </body>
 
