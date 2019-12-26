@@ -17,5 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@index')->name('dashboard');
-Route::resource('manage_users', 'Manage_usersController');
+Route::group(['middleware' => ['Auth','check.Admin']],function()
+{
+    Route::get('/admin', 'HomeController@index')->name('dashboard');
+    Route::resource('/admin/manage-user', 'Manage_usersController')->name('admin/adduser');
+});
+

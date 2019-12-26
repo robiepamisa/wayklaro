@@ -39,5 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function hasRole($role)
+    {
+        return null !== $this->user()-where('user_role',$role)->first();
+    }
+
     
 }
