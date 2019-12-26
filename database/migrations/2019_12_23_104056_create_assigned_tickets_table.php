@@ -14,8 +14,8 @@ class CreateAssignedTicketsTable extends Migration
     public function up()
     {
         Schema::create('assigned_tickets', function (Blueprint $table) {
-            $table->bigIncrements('user_id');
-            $table->bigIncrements('ticket_id');
+            $table->integer('user_id');
+            $table->integer('ticket_id');
         });
     }
 
