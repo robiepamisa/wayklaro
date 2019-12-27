@@ -39,5 +39,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function assigned_tickets()
+    {
+        return $this->belongsTo(Assigned_ticket::class);
+    }
+
     
 }

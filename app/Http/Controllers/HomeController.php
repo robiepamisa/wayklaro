@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Assigned_ticket;
+use App\Ticket;
+use App\User;
+use App\Status;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $employees = User::where('user_role', 2)->get();
+        $tickets = Ticket::all();
+        $status = Status::all();
+        return view('admin',compact('tickets','employees','status'));
+      
+    }
+    public function store()
+    {
+      dd(request('ticket_id'));
     }
 }

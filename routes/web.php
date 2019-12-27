@@ -18,4 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('dashboard');
+Route::post('/admin', 'HomeController@store');
 Route::resource('manage_users', 'Manage_usersController');
+
