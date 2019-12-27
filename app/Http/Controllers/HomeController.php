@@ -7,6 +7,7 @@ use App\Assigned_ticket;
 use App\Ticket;
 use App\User;
 use App\Status;
+use App\Priority;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,8 @@ class HomeController extends Controller
         $employees = User::where('user_role', 2)->get();
         $tickets = Ticket::all();
         $status = Status::all();
-        return view('admin',compact('tickets','employees','status'));
+        $priority = Priority::all();
+        return view('admin',compact('tickets','employees','status','priority'));
       
     }
     public function store()
