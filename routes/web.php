@@ -16,8 +16,22 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 
-Route::get('/admin', 'HomeController@index')->name('dashboard');
-Route::post('/admin', 'HomeController@store');
-Route::resource('manage_users', 'Manage_usersController');
+			Route::get('/', 'HomeController@index')->name('dashboard');
+			Route::post('/', 'HomeController@store');
+			Route::resource('manage_users', 'Manage_usersController');
+
+});
+
+
+Auth::routes();
+Route::group(['prefix' => 'user','middleware' => ['userrole']], function(){
+
+			Route::get('/', 'UserController@index')->name('user');
+
+});
+
+
+
 

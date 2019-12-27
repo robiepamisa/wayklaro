@@ -39,16 +39,16 @@
       <hr class="sidebar-divider my-0">
 
       <?php
-          $segment = Request::segment(2);
+          $segment = Request::segment(1);
          
        ?>
       <!-- Nav Item - Dashboard -->
       <li class="nav-item 
-      @if(!$segment)
+      @if($segment=='admin')
       active
       @endif
       ">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Manage Tickets</span></a>
       </li>
@@ -66,7 +66,7 @@
       @endif
 
       ">
-        <a class="nav-link" href="{{ route('manage_users.index') }}">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-user-plus"></i>
           <span>Manage users</span></a>
       </li>
@@ -110,7 +110,7 @@
             
             <!-- Nav Item - Messages -->
             <li class="nav-item" aria-haspopup="true" aria-expanded="false" v-pre>
-                                 Admin,
+                                 Employee,
                                     {{ Auth::user()->name }} 
                                 
 
