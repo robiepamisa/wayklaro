@@ -30,7 +30,7 @@
                     <td>{{ $t->description}}</td>
                     <td>{{ $t->priority->priority_name}}</td>
                     <td>{{ $t->status->status_name }}</td>
-                    <td><div class="form-group">
+                    <td><div class="form-group"> 
                       <select name="emplyee_id" id="emplyee_id" class="form-control">
                        <option value=""></option>
                        @foreach ($employees as $emp)

@@ -37,6 +37,6 @@ class HomeController extends Controller
     }
     public function store()
     {
-      dd(request('ticket_id'));
+      dd(request('ticket_id')); 
     }
 }
