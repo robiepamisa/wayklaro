@@ -39,17 +39,17 @@
       <hr class="sidebar-divider my-0">
 
       <?php
-          $segment = Request::segment(1);
+          $segment = Request::segment(2);
          
        ?>
       <!-- Nav Item - Dashboard -->
       <li class="nav-item 
-      <?php if($segment=='admin'): ?>
+      <?php if(!$segment): ?>
       active
       <?php endif; ?>
       ">
         <a class="nav-link" href="<?php echo e(route('dashboard')); ?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-ticket-alt"></i>
           <span>Manage Tickets</span></a>
       </li>
 
@@ -110,7 +110,7 @@
             
             <!-- Nav Item - Messages -->
             <li class="nav-item" aria-haspopup="true" aria-expanded="false" v-pre>
-                                 Hello,
+                                 Admin,
                                     <?php echo e(Auth::user()->name); ?> 
                                 
 
