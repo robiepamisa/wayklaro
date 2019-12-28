@@ -49,7 +49,7 @@
       @endif
       ">
         <a class="nav-link" href="{{ route('dashboard') }}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-ticket-alt"></i>
           <span>Manage Tickets</span></a>
       </li>
 

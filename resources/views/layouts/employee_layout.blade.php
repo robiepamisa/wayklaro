@@ -50,7 +50,7 @@
       ">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Manage Tickets</span></a>
+          <span>dashboard</span></a>
       </li>
 
         <div class="sidebar-heading">
@@ -67,8 +67,8 @@
 
       ">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-user-plus"></i>
-          <span>Manage users</span></a>
+          <i class="fas fa-fw fa-eye"></i>
+          <span>View assigned tickets</span></a>
       </li>
             <!-- Divider -->
       <hr class="sidebar-divider my-0">

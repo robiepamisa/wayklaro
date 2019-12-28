@@ -49,7 +49,7 @@
       @endif
       ">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-pen-alt"></i>
           <span>Create ticket</span></a>
       </li>
 
@@ -67,7 +67,7 @@
 
       ">
         <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-user-plus"></i>
+          <i class="fas fa-fw fa-eye"></i>
           <span>View my tickets</span></a>
       </li>
             <!-- Divider -->

@@ -24,8 +24,12 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 
 });
 
+Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){
 
-Auth::routes();
+			Route::get('/', 'EmployeeController@index')->name('employee');
+
+});
+
 Route::group(['prefix' => 'user','middleware' => ['userrole']], function(){
 
 			Route::get('/', 'UserController@index')->name('user');
