@@ -19,11 +19,11 @@
           				<th>Email</th>
           				<th>Actions</th>
           			</tr>
-          			@foreach($users as $u)
+          			@foreach($users as $user)
           				<tr>
-          					<td>{{ $u->id }}</td>
-          					<td>{{ $u->name }}</td>
-          					<td>{{ $u->email }}</td>
+          					<td>{{ $user->id }}</td>
+          					<td>{{ $user->name }}</td>
+          					<td>{{ $user->email }}</td>
           					<td><a href="#" class="btn btn-danger">Delete User</a></td>
           				</tr>
           			@endforeach

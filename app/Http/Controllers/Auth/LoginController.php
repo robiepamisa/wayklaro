@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use App\User;
 
 class LoginController extends Controller
 {
@@ -28,22 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-        protected function authenticated(Request $request,$user)
-        {
-            if($user->user_role==1)
-            {
-                return redirect ('/admin');
-            }
-            elseif ($user->user_role==2)
-            {
-               return redirect ('/employee'); 
-            }
-            elseif ($user->user_role==3)
-            {
-               return redirect ('/user'); 
-            }
-        }
-
+    protected $redirectTo ='/admin';
 
     /**
      * Create a new controller instance.

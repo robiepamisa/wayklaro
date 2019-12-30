@@ -48,7 +48,7 @@
       active
       @endif
       ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('/')}}">
           <i class="fas fa-fw fa-pen-alt"></i>
           <span>Create ticket</span></a>
       </li>
@@ -66,7 +66,7 @@
       @endif
 
       ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('user/view-ticket')}}">
           <i class="fas fa-fw fa-eye"></i>
           <span>View my tickets</span></a>
       </li>

@@ -33,6 +33,9 @@ Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function
 Route::group(['prefix' => 'user','middleware' => ['userrole']], function(){
 
 			Route::get('/', 'UserController@index')->name('user');
+			Route::post('/ticket-submit','TicketController@index');
+			Route::get('/view-ticket','UserController@viewTicket');
+			
 
 });
 

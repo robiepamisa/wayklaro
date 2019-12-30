@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $table = 'users';
     
     protected $fillable = [
-        'name', 'email', 'password','user_role',
+        'name', 'email', 'password','user_role','id',
     ];
 
     /**
@@ -39,9 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function assigned_tickets()
+    public function ticket()
     {
-        return $this->belongsTo(Assigned_ticket::class);
+        return $this->hasMany(Ticket::class);
     }
 
     

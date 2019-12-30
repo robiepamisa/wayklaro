@@ -20,6 +20,15 @@ class Ticket extends Model
     }
     public function priority()
     {
-        return $this->belongsTo(Priority::class);
+        return $this->belongsTo(Priority::class,'priority_id','priority_id');
     }
+
+    public function assigned()
+    {
+        return $this->belongsTo(User::class,'assign_to','id');
+    }
+    
+    
+    
+
 }

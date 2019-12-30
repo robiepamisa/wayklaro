@@ -9,6 +9,9 @@ class Priority extends Model
 	protected $table = 'priority';
     protected $guarded = [];
 
+    protected $fillable = [
+        'priority_id','priority',
+    ];
 
     public function tickets()
     {

@@ -14,11 +14,11 @@ class AddDataToStatusTable extends Migration
     public function up()
     {
         DB::table('status')->insert(array(
-            'status' => 'Not resolve'
+            'status_name' => 'Not resolve'
         ));
 
          DB::table('status')->insert(array(
-            'status' => 'Resolved'
+            'status_name' => 'Resolved'
         ));
 
     }

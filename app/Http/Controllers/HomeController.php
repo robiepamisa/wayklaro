@@ -8,6 +8,8 @@ use App\Ticket;
 use App\User;
 use App\Status;
 use App\Priority;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,11 +30,25 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(isset($_GET['id']))
+        {   
+            Ticket::where('ticket_id',$_GET['id'])
+                        ->update(['assign_to'=>$_GET['eid']]);
+        }
+
+        $ticket = Ticket::all();
+        
         $employees = User::where('user_role', 2)->get();
-        $tickets = Ticket::all();
-        $status = Status::all();
-        $priority = Priority::all();
-        return view('admin',compact('tickets','employees','status','priority'));
+        // $signedTicket = DB::table('tickets')
+        //                 ->join('users','tickets.assign_to','users.id')
+        //                 ->join('status','tickets.status_id','status.id')
+        //                 ->get();
+        
+        
+       
+        
+        
+        return view('admin',compact('employees','ticket'));
       
     }
     public function store()
