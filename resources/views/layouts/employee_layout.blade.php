@@ -60,16 +60,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item
-      @if($segment=='manage_users')
-      active
-      @endif
-
-      ">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-eye"></i>
-          <span>View assigned tickets</span></a>
-      </li>
+      
             <!-- Divider -->
       <hr class="sidebar-divider my-0">
       <li class="nav-item">
