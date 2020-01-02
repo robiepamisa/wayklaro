@@ -21,6 +21,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 			Route::get('/', 'HomeController@index')->name('dashboard');
 			Route::post('/', 'HomeController@store');
 			Route::resource('manage_users', 'Manage_usersController');
+			Route::POST('/saving-credentials','HomeController@updateCreds');
 
 });
 

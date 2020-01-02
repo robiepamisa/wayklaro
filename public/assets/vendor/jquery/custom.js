@@ -18,7 +18,11 @@ $(document).ready(function() {
             .closest("tr")
             .attr("id");
         var trId = "#" + id;
-        console.log(id);
+        var rowId = $(trId)
+            .children(".rowID")
+            .children(".custId")
+            .val();
+
         var subject = $(trId)
             .children(".rowSub")
             .text();
@@ -34,10 +38,25 @@ $(document).ready(function() {
         var assign = $(trId)
             .children(".rowAssign")
             .text();
-        $(".rowSubModal").text(subject);
-        $(".rowDescModal").text(description);
-        $(".rowPrioModal").text(priority);
-        $(".rowStatModal").text(status);
-        $(".rowAssignModal").text(assign);
+
+        if (assign == "None") {
+            assign = "";
+        }
+
+        $("#SubModalId").val(subject);
+        $("#DescModalId").val(description);
+        $("#selectPrioId")
+            .val(priority)
+            .change();
+
+        $("#selectStatId")
+            .val(status)
+            .change();
+        $("#selectEmpId")
+            .val(assign)
+            .change();
+        $("#custId")
+            .val(rowId)
+            .change();
     });
 });

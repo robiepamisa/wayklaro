@@ -37,7 +37,8 @@ class HomeController extends Controller
         }
 
         $ticket = Ticket::all();
-        
+        $status = Status::all();
+        $priority = Priority::all();
         $employees = User::where('user_role', 2)->get();
         // $signedTicket = DB::table('tickets')
         //                 ->join('users','tickets.assign_to','users.id')
@@ -48,11 +49,37 @@ class HomeController extends Controller
        
         
         
-        return view('admin',compact('employees','ticket'));
+        return view('admin',compact('employees','ticket','status','priority'));
       
     }
     public function store()
     {
       dd(request('ticket_id')); 
+    }
+
+    public function updateCreds(Request $request)
+    {
+        // dd($request->all());
+        $priorityID = Priority::where('priority',$request['priority'])->first();
+        // dd($priorityID->priority_id);
+        $statusID = Status::where('status_name',$request['status'])->first();
+        // dd($statusID->id);
+        if($request['assignTo']==null)
+        {
+            $assignToID = 0;
+        }
+        else
+        {
+            $assignTo = User::where('name',$request['assignTo'])->first();
+            $assignToID = $assignTo->id;
+        }
+        // dd($priorityID->priority_id,$statusID->id,$assignToID);
+        Ticket::Where('ticket_id',$request['ticket_id'])
+                ->update(['priority_id'=>$priorityID->priority_id,
+                        'status_id'=>$statusID->id,
+                        'assign_to'=>$assignToID]);
+        
+        return redirect(url('admin'));
+
     }
 }

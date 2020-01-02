@@ -26,31 +26,31 @@
                      @foreach($ticket as $tickets)
                 
                     <tr id="row_{{$loop->iteration}}">
+                    
                      
-                    <td><div class="rowId form-group"> <input type="text" name="ticket_id" hidden value="{{ $loop->iteration}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div> </td>
+                    <td class="rowID">
+                      <input type="text" class="custId"  name="ticket_id" hidden value="{{$tickets->ticket_id}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div>
+                     </td>
                     <td class="rowSub">{{ $tickets->subject}}</td>
                     <td class="rowDesc">{{ $tickets->description}}</td>
                     <td class="rowPrio">{{ $tickets->priority->priority}}</td>
                     <td class="rowStat">{{ $tickets->status->status_name }}</td>
-                    <td class="rowAssign">
-                    
                     @if(isset($tickets->assigned->name))
-                    {{$tickets->assigned->name}}</td>
-                    <td><button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button></td>
-                    
-                    
+                      <td class="rowAssign">{{$tickets->assigned->name}}</td>
                     @else
-                    None
-                    </td>
-                    
-                    <td>
-                        <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
-                    </td>
+                      <td class="rowAssign">None</td>  
+                    @endif
+                    @if(isset($tickets->assigned->name))
+                      <td>
+                        <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
+                      </td>
+                    @else
+                      <td>
+                          <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
+                      </td>
+                    @endif
                      
-                      
                   </tr>
-                           
-                  @endif
                 
                   @endforeach
                 
@@ -74,6 +74,8 @@
                           </button>
                         </div>
                         <div class="modal-body">
+                          <form action="{{url('admin/saving-credentials')}}" method="POST">
+                          @csrf
                               <table class="table table-bordered table-striped">
                                   <tr>
                                     
@@ -84,19 +86,49 @@
                                     <th>Assign to</th>
                                   </tr>
                                   <tr>
-                                  <td class="rowSubModal"></td>
-                                  <td class="rowDescModal"></td>
-                                  <td class="rowPrioModal"></td>
-                                  <td class="rowStatModal"></td>
-                                  <td class="rowAssignModal"></td>
+                                  <td class="rowSubModal">
+                                  <input type="hidden" id="custId" name="ticket_id" value="">
+                                    <input type="text" readonly name="subject" class="form-control-plaintext" id="SubModalId" value="">
+                                  </td>
+                                  <td class="rowDescModal">
+                                      <input type="text" readonly name="description" class="form-control-plaintext" id="DescModalId" value="">
+                                  </td>
+                                  
+                                  <!-- priority -->
+                                  <td>
+                                    <select class="form-control" name="priority" id="selectPrioId" value="">
+                                        @foreach($priority as $prio)
+                                            <option value="{{$prio->priority}}">{{$prio->priority}}</option>
+                                        @endforeach
+                                    </select>
+                                  </td>
+                                  <!-- status -->
+                                  <td>
+                                    <select class="form-control" name="status" id="selectStatId" value="">
+                                        @foreach($status as $stat)
+                                            <option value="{{$stat->status_name}}">{{$stat->status_name}}</option>
+                                        @endforeach
+                                    </select>
+                                  </td>
+                                  <!-- Employee -->
+                                  <td>
+                                    <select class="form-control" name="assignTo" id="selectEmpId" value="">
+                                      <option value="" > Choose Employee</option>
+                                        @foreach($employees as $emp)
+                                            <option value="{{$emp->name}}">{{$emp->name}}</option>
+                                        @endforeach
+                                    </select>
+                                  </td>
                                   
                                   </tr>
                                 </table>
+                          
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-primary" value="Save changes">Save changes</button>
                         </div>
+                        </form>
                       </div>
                     </div>
                   </div>
