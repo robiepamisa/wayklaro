@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){
 
 			Route::get('/', 'EmployeeController@index')->name('employee');
+			Route::POST('/submit', 'EmployeeController@statusSubmit')->name('submitStatus');
 
 });
 

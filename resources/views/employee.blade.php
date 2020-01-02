@@ -4,14 +4,61 @@
 	
 	<!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dash Board</h1>
+            <h1 class="h3 mb-0 text-gray-800">Assigned Tickets</h1>
 
           </div>
            <!-- Content Row -->
           <section class="content">
             <div class="container-fluid">
               
-          			Content Area!
+            <table class="table table-bordered table-striped">
+                <tr>
+                  <th>ID</th>
+                  <th>Subject</th>
+                  <th>Description</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+                  @foreach($tickets as $tickets)
+                  <tr>
+                  <form action="{{url('employee/submit')}}" method="POST">
+                  @csrf
+                    <td>
+                      <input type="text" name="id" readonly class="form-control-plaintext" id="staticEmail" hidden value="{{$tickets->ticket_id}}">{{$loop->iteration}}
+                    </td>
+                    <td>
+                      <input type="text" name="subject" readonly class="form-control-plaintext" id="staticEmail" value="{{$tickets->subject}}">
+                    </td>
+                    <td>
+                      <input type="text" name="description" readonly class="form-control-plaintext" id="staticEmail" value="{{$tickets->description}}">
+                    </td>
+                    <td>
+                      <input type="text" name="priority" readonly class="form-control-plaintext" id="staticEmail" value="{{$tickets->priority->priority}}">
+                    </td>
+                    <td>
+                      <input type="text" name="status" readonly class="form-control-plaintext" id="staticEmail" value="{{$tickets->status->status_name}}">
+                    </td>
+                  
+                    @if($tickets->status->id == 2)
+                    <td>
+                    <button type="submit" class="btn btn-warning" name="status" value="1">Not Resolve</button>
+                      </form>
+                    </td>
+                    @else
+                    <td>
+                      
+                        <button type="submit" class="btn btn-success" name="status" value="2">Solve</button>
+                      </form>
+                    </td>
+                    @endif
+
+
+
+
+                  </tr>
+                  @endforeach
+              </table>
                       
 
             </div>

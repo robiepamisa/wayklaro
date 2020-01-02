@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Ticket;
+use Auth;
+
 class EmployeeController extends Controller
 {
     public function __construct()
@@ -13,6 +17,19 @@ class EmployeeController extends Controller
 
     public function index()
     {
-    	return view('employee');
+        $id = Auth::id();
+        
+        $tickets = Ticket::where('assign_to',$id)->get();
+        
+
+    	return view('employee',compact('tickets'));
+    }
+
+    public function statusSubmit(Request $request)
+    {
+        
+        Ticket::where('ticket_id',$request['id'])
+                ->update(['status_id'=>$request['status']]);
+                return redirect(url("employee"));
     }
 }
