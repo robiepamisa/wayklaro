@@ -14,15 +14,15 @@ class AddRoleToRoleTable extends Migration
     public function up()
     {
         DB::table('role')->insert(array(
-            'role' => 'admin'
+            'role_name' => 'admin'
         ));
 
          DB::table('role')->insert(array(
-            'role' => 'employee'
+            'role_name' => 'employee'
         ));
 
           DB::table('role')->insert(array(
-            'role' => 'user'
+            'role_name' => 'user'
         ));
 
     }
@@ -34,8 +34,8 @@ class AddRoleToRoleTable extends Migration
      */
     public function down()
     {
-        DB::table('role')->where('role','=','admin')->delete();
-        DB::table('role')->where('role','=','employee')->delete();
-        DB::table('role')->where('role','=','user')->delete();
+        DB::table('role')->where('role_name','=','admin')->delete();
+        DB::table('role')->where('role_name','=','employee')->delete();
+        DB::table('role')->where('role_name','=','user')->delete();
     }
 }

@@ -34,10 +34,21 @@
                       <input type="text" name="description" readonly class="form-control-plaintext"  value="{{$tickets->description}}">
                     </td>
                     <td>
-                      <input type="text" name="priority" readonly class="form-control-plaintext"  value="{{$tickets->priority->priority}}">
+                      <input type="text" name="priority" readonly class="form-control-plaintext @if($tickets->priority->priority == 'LESS')
+                                                                                                    text-primary
+                                                                                                    @elseif($tickets->priority->priority == 'NORMAL')
+                                                                                                    text-warning
+                                                                                                    @else
+                                                                                                    text-danger
+                                                                                                    @endif" id="staticEmail" value="{{$tickets->priority->priority}}">
                     </td>
                     <td>
-                      <input type="text" name="status" readonly class="form-control-plaintext"  value="{{$tickets->status->status_name}}">
+                      <input type="text" name="status" readonly class="form-control-plaintext @if($tickets->Status->status_name == 'Resolved')
+                                                                                              text-success
+                                                                                              @else
+                                                                                              text-danger
+                                                                                              @endif
+                      " id="staticEmail" value="{{$tickets->status->status_name}}">
                     </td>
                   
                     @if($tickets->status->id == 2)

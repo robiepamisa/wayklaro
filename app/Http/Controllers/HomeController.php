@@ -36,7 +36,7 @@ class HomeController extends Controller
                         ->update(['assign_to'=>$_GET['eid']]);
         }
 
-        $ticket = Ticket::all();
+        $ticket = Ticket::orderBy('status_id')->get();
         $status = Status::all();
         $priority = Priority::all();
         $employees = User::where('user_role', 2)->get();
