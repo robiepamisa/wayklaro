@@ -8,7 +8,7 @@
           </div>
 
           <!-- Content Row -->
-          <section class="content">
+
             <div class="container-fluid">
               
               <table class="table table-bordered table-striped table_row_id">
@@ -135,9 +135,5 @@
                   </div>
             <!-- end modal content -->
             
-
-
-
-          </section>
     
 @endsection
