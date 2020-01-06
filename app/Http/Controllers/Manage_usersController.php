@@ -63,7 +63,7 @@ class Manage_usersController extends Controller
         ]); 
         
 
-        return redirect()->back()->with('success', 'User added successfully.');
+        return redirect('admin/manage_users')->with('success', 'User added successfully.');
     }
 
     /**

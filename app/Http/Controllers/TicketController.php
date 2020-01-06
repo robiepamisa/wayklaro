@@ -22,4 +22,4 @@ class TicketController extends Controller
         
         return redirect(url('user/view-ticket'));
     }
-}
+} 

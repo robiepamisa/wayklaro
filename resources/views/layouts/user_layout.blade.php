@@ -39,12 +39,12 @@
       <hr class="sidebar-divider my-0">
 
       <?php
-          $segment = Request::segment(1);
+          $segment = Request::segment(2);
          
        ?>
       <!-- Nav Item - Dashboard -->
       <li class="nav-item 
-      @if($segment=='admin')
+      @if(!$segment)
       active
       @endif
       ">
@@ -61,7 +61,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item
-      @if($segment=='manage_users')
+      @if($segment=='view-ticket')
       active
       @endif
 
