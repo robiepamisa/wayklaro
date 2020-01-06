@@ -59,4 +59,19 @@ $(document).ready(function() {
             .val(rowId)
             .change();
     });
+
+    $("#table_row_id tr").click(function() {
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+
+        var ticketId = $(rowId)
+            .children("td")
+            .children("input")
+            .val();
+        console.log(ticketId);
+
+        window.location = window.location + "/ticket/" + ticketId;
+    });
 });

@@ -82,4 +82,9 @@ class HomeController extends Controller
         return redirect(url('admin'));
 
     }
+
+    public function ticket($ticketID)
+    {
+        return view("ticket");
+    }
 }

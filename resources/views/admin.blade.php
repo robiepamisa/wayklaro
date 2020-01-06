@@ -11,7 +11,7 @@
           <section class="content">
             <div class="container-fluid">
               
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped table_row_id">
                 <tr>
                   <th>ID</th>
                   <th>Subject</th>
@@ -25,7 +25,8 @@
 
                      @foreach($ticket as $tickets)
                 
-                    <tr id="row_{{$loop->iteration}}">
+                    <tr  id="row_{{$loop->iteration}}">
+                      
                     
                      
                     <td class="rowID">
@@ -49,7 +50,7 @@
                           <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
                       </td>
                     @endif
-                     
+                   
                   </tr>
                 
                   @endforeach
