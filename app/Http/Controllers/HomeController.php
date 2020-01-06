@@ -85,6 +85,21 @@ class HomeController extends Controller
 
     public function ticket($ticketID)
     {
-        return view("ticket");
+        $view = "";
+        if(Auth::User()->user_role == 1)
+        {
+            $view = "layouts.admin_layout";
+        }
+        else if(Auth::User()->user_role == 2)
+        {
+            $view = "layouts.employee_layout";
+        }
+        else if(Auth::User()->user_role == 3)
+        {
+            
+            $view = "layouts.user_layout";
+        }
+        $ticket = Ticket::where('ticket_id',$ticketID)->first();
+        return view("ticket",compact('view','ticket'));
     }
 }
