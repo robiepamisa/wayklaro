@@ -34,7 +34,12 @@
                     <td class="rowSub">{{ $tickets->subject}}</td>
                     <td class="rowDesc">{{ $tickets->description}}</td>
                     <td class="rowPrio">{{ $tickets->priority->priority}}</td>
-                    <td class="rowStat">{{ $tickets->status->status_name }}</td>
+                    <td class="rowStat @if($tickets->status->status_name == 'Resolved')
+                                            text-success
+                                        @else
+                                            text-danger
+                                        @endif
+                      ">{{ $tickets->status->status_name }}</td>
                     @if(isset($tickets->assigned->name))
                       <td class="rowAssign">{{$tickets->assigned->name}}</td>
                     @else
