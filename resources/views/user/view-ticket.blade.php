@@ -12,7 +12,7 @@
             <div class="container-fluid">
               
               <table class="table table-bordered table-striped">
-                <tr>
+                <tr> 
                   <th>ID</th>
                   <th>Subject</th>
                   <th>Description</th>
