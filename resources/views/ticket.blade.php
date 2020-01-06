@@ -4,11 +4,12 @@
         
 <section>
         <div class="container-fluid">
-        <div class="d-sm-flex align-items-center justify-content-between mb-0">
+        <div class="align-items-center">
             <h1
-                class="h1 mb-8 text-gray-800 grid">{{$ticket->subject}}
+                class="h1 text-uppercase text-gray-800">{{$ticket->subject}}
             </h1>
         </div>
+        <div>{{$ticket->created_at}}</div>
             <div class="row">
                 <div class="col-8 display-4">
                 <strong>{{$ticket->description}}</strong>
