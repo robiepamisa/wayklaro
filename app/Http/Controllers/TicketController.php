@@ -5,6 +5,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Ticket;
 use Auth;
+use App\Comments;
 class TicketController extends Controller
 {
     public function index(Request $request)
@@ -21,5 +22,18 @@ class TicketController extends Controller
         ]);
         
         return redirect(url('user/view-ticket'));
+    }
+
+    public function submitComment(Request $request)
+    {
+        
+        $userId = Auth::id();
+        
+            Comments::create([
+                'ticket_id'=>$request['ticket_id'],
+                'author_id'=>$userId,
+                'comment'=>$request['comment']
+            ]);
+        return back();
     }
 }

@@ -11,7 +11,7 @@
 
             <div class="container-fluid">
               
-              <table class="table table-bordered table-striped table_row_id">
+              <table class="table table-bordered table-striped " id="userTableId">
                 <tr>
                   <th>ID</th>
                   <th>Subject</th>

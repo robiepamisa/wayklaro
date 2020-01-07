@@ -40,7 +40,7 @@
                                                                                                     text-warning
                                                                                                     @else
                                                                                                     text-danger
-                                                                                                    @endif" id="staticEmail" value="{{$tickets->priority->priority}}">
+                                                                                                    @endif" value="{{$tickets->priority->priority}}">
                     </td>
                     <td>
                       <input type="text" name="status" readonly class="form-control-plaintext @if($tickets->Status->status_name == 'Resolved')
@@ -48,7 +48,7 @@
                                                                                               @else
                                                                                               text-danger
                                                                                               @endif
-                      " id="staticEmail" value="{{$tickets->status->status_name}}">
+                      " value="{{$tickets->status->status_name}}">
                     </td>
                   
                     @if($tickets->status->id == 2)

@@ -70,8 +70,56 @@ $(document).ready(function() {
             .children("td")
             .children("input")
             .val();
-        console.log(ticketId);
+        var getUrl = window.location;
+        var baseUrl =
+            getUrl.protocol +
+            "//" +
+            getUrl.host +
+            "/" +
+            getUrl.pathname.split("/")[1] +
+            "/" +
+            getUrl.pathname.split("/")[2];
 
-        window.location = window.location + "/ticket/" + ticketId;
+        window.location = baseUrl + "/ticket/" + ticketId;
+    });
+
+    $("#AddComment").click(function() {
+        $("#showCommentBox").show();
+    });
+    $("#cancelComment").click(function() {
+        $("#showCommentBox").hide();
+        $(".AddComment").show();
+    });
+
+    $(".replyComment").click(function() {
+        $("#showReplyBox").show();
+        console.log("asd");
+    });
+    $(".cancelReplyComment").click(function() {
+        $("#showReplyBox").hide();
+    });
+
+    $("#userTableId tr").click(function() {
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+
+        var ticketId = $(rowId)
+            .children("td")
+            .children("input")
+            .val();
+
+        var getUrl = window.location;
+        var baseUrl =
+            getUrl.protocol +
+            "//" +
+            getUrl.host +
+            "/" +
+            getUrl.pathname.split("/")[1] +
+            "/" +
+            getUrl.pathname.split("/")[2];
+
+        window.location = baseUrl + "/ticket/" + ticketId;
     });
 });

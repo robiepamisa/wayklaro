@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">View Tickets</h1>
+            <h1 class="h3 mb-0 text-gray-800 m-2">View Tickets</h1>
 
           </div>
 
@@ -11,7 +11,7 @@
           <section class="content">
             <div class="container-fluid">
               
-              <table class="table table-bordered table-striped">
+              <table class="table table-bordered table-striped " id="userTableId">
                 <tr> 
                   <th>ID</th>
                   <th>Subject</th>
@@ -23,9 +23,10 @@
                 @if(isset($data))
 
                 @foreach($data as $data)
-                <tr>
+                <tr id="row{{$loop->iteration}}">
                     
-                    <td>{{$loop->iteration}}</td>
+                    <td> <input type="hidden" value="{{$data->ticket_id}}">
+                      {{$loop->iteration}}</td>
                     <td>{{$data->subject}}</td>
                     <td>{{$data->description}}</td>
                     <td>{{$priority[$data->priority_id-1]->priority}}</td>

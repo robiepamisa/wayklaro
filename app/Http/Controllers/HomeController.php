@@ -10,6 +10,7 @@ use App\Status;
 use App\Priority;
 use Auth;
 use DB;
+use App\Comments;
 
 class HomeController extends Controller
 {
@@ -85,6 +86,7 @@ class HomeController extends Controller
 
     public function ticket($ticketID)
     {
+        
         $view = "";
         if(Auth::User()->user_role == 1)
         {
@@ -99,7 +101,9 @@ class HomeController extends Controller
             
             $view = "layouts.user_layout";
         }
+        $comments = Comments::where("ticket_id",$ticketID)->get();
+       
         $ticket = Ticket::where('ticket_id',$ticketID)->first();
-        return view("ticket",compact('view','ticket'));
+        return view("ticket",compact('view','ticket','comments'));
     }
 }

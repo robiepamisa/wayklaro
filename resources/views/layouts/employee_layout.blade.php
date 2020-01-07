@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
+  <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
 </head>
@@ -29,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -48,7 +49,7 @@
       active
       @endif
       ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{url('/')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>dashboard</span></a>
       </li>
@@ -175,8 +176,7 @@
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery/custom.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery/timeago.js') }}"></script>
-  <script src="{{ asset('jquery.min.js')}}" type="text/javascript"></script>
-  <script src="{{ asset('jquery.timeago.js')}}" type="text/javascript"></script>
+  
 
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
