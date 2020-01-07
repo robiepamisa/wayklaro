@@ -36,7 +36,7 @@ class UserController extends Controller
         
        
         
-       return view('user.view-ticket',compact('data','priority',));
+       return view('user.view-ticket',compact('data','priority'));
    }
 
    public function createTicket()

@@ -11,8 +11,13 @@
           <section class="content">
             <div class="container-fluid">
               
+<<<<<<< HEAD
               <table class="table table-bordered table-striped " id="userTableId">
                 <tr> 
+=======
+              <table class="table table-bordered table-striped">
+                <tr>
+>>>>>>> 870a7cf92cc9938b63b95a38534bbd11e4e70da6
                   <th>ID</th>
                   <th>Subject</th>
                   <th>Description</th>
@@ -29,9 +34,23 @@
                       {{$loop->iteration}}</td>
                     <td>{{$data->subject}}</td>
                     <td>{{$data->description}}</td>
-                    <td>{{$priority[$data->priority_id-1]->priority}}</td>
-                    <td>{{$data->status->status_name}}</td>
-                    <td>{{$data->status->status_name}}</td>
+                    <td class="row @if($data->priority->priority == 'LESS')
+                                       text-primary
+                                     @elseif($data->priority->priority == 'NORMAL')
+                                        text-warning
+                                        @else
+                                        text-danger
+                                        @endif" >{{$priority[$data->priority_id-1]->priority}}</td>
+                    <td class="@if($data->status->status_name == 'Resolved')
+                                            text-success
+                                        @else
+                                            text-danger
+                                        @endif">{{$data->status->status_name}}</td>
+                    @if(isset($data->assigned->name))
+                      <td class="rowAssign text-gray-900">{{$data->assigned->name}}</td>
+                    @else
+                      <td class="rowAssign">Pending..</td>  
+                    @endif
                      
                 @endforeach
                 @endif
