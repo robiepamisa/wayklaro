@@ -11,7 +11,7 @@
 
             <div class="container-fluid">
               
-              <table class="table table-bordered table-striped " id="userTableId">
+              <table class="table table-bordered table-striped ">
                 <tr>
                   <th>ID</th>
                   <th>Subject</th>
@@ -26,36 +26,31 @@
                      @foreach($ticket as $tickets)
                 
                     <tr  id="row_{{$loop->iteration}}">
-                      
-                    
-                     
-                    <td class="rowID">
-                      <input type="text" class="custId"  name="ticket_id" hidden value="{{$tickets->ticket_id}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div>
-                     </td>
-                    <td class="rowSub">{{ $tickets->subject}}</td>
-                    <td class="rowDesc">{{ $tickets->description}}</td>
-                    <td class="rowPrio">{{ $tickets->priority->priority}}</td>
-                    <td class="rowStat @if($tickets->status->status_name == 'Resolved')
-                                            text-success
-                                        @else
-                                            text-danger
-                                        @endif
-                      ">{{ $tickets->status->status_name }}</td>
-                    @if(isset($tickets->assigned->name))
-                      <td class="rowAssign">{{$tickets->assigned->name}}</td>
-                    @else
-                      <td class="rowAssign">None</td>  
-                    @endif
-                    @if(isset($tickets->assigned->name))
-                      <td>
-                        <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
+                      <td class="rowID">
+                        <input type="text" class="custId"  name="ticket_id" hidden value="{{$tickets->ticket_id}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div>
                       </td>
-                    @else
+                      <td class="rowSub">{{ $tickets->subject}}</td>
+                      <td class="rowDesc">{{ $tickets->description}}</td>
+                      <td class="rowPrio">{{ $tickets->priority->priority}}</td>
+                      <td class="rowStat @if($tickets->status->status_name == 'Resolved')
+                                              text-success
+                                          @else
+                                              text-danger
+                                          @endif
+                        ">{{ $tickets->status->status_name }}</td>
+                      @if(isset($tickets->assigned->name))
+                        <td class="rowAssign">{{$tickets->assigned->name}}</td>
+                      @else
+                        <td class="rowAssign">None</td>  
+                      @endif
                       <td>
-                          <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
-                      </td>
-                    @endif
-                   
+                      @if(isset($tickets->assigned->name))
+                          <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
+                      @else
+                            <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
+                      @endif
+                      <button type="button" class="viewTicketButton btn btn-warning" >View Ticket</button>
+                      </td>                   
                   </tr>
                 
                   @endforeach

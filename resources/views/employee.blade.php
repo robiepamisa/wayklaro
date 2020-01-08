@@ -50,19 +50,17 @@
                                                                                               @endif
                       " value="{{$tickets->status->status_name}}">
                     </td>
-                  
+                    <td>                  
                     @if($tickets->status->id == 2)
-                    <td>
                     <button type="submit" class="btn btn-warning" name="status" value="1">Not Resolve</button>
                       </form>
-                    </td>
                     @else
-                    <td>
-                      
                         <button type="submit" class="btn btn-success" name="status" value="2">Solve</button>
                       </form>
-                    </td>
                     @endif
+                    <button type="button" class="viewTicketButton btn btn-warning" >View Ticket</button>
+                    </td>
+
 
 
 

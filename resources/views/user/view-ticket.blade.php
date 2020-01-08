@@ -11,25 +11,20 @@
           <section class="content">
             <div class="container-fluid">
               
-<<<<<<< HEAD
-              <table class="table table-bordered table-striped " id="userTableId">
+              <table class="table table-bordered table-striped ">
                 <tr> 
-=======
-              <table class="table table-bordered table-striped">
-                <tr>
->>>>>>> 870a7cf92cc9938b63b95a38534bbd11e4e70da6
                   <th>ID</th>
                   <th>Subject</th>
                   <th>Description</th>
                   <th>Priority</th>
                   <th>Status</th>
                   <th>Assign to</th>
+                  <th>Action</th>
                 </tr>
                 @if(isset($data))
 
                 @foreach($data as $data)
                 <tr id="row{{$loop->iteration}}">
-                    
                     <td> <input type="hidden" value="{{$data->ticket_id}}">
                       {{$loop->iteration}}</td>
                     <td>{{$data->subject}}</td>
@@ -51,8 +46,11 @@
                     @else
                       <td class="rowAssign">Pending..</td>  
                     @endif
-                     
-                @endforeach
+                    <td>
+                    <button type="button" class="viewTicketButton btn btn-warning" >View Ticket</button>
+                    </td>
+                  @endforeach
+                </tr>
                 @endif
 
                      

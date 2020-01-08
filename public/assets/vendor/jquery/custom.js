@@ -60,29 +60,6 @@ $(document).ready(function() {
             .change();
     });
 
-    $("#table_row_id tr").click(function() {
-        var id = $(this)
-            .closest("tr")
-            .attr("id");
-        var rowId = "#" + id;
-
-        var ticketId = $(rowId)
-            .children("td")
-            .children("input")
-            .val();
-        var getUrl = window.location;
-        var baseUrl =
-            getUrl.protocol +
-            "//" +
-            getUrl.host +
-            "/" +
-            getUrl.pathname.split("/")[1] +
-            "/" +
-            getUrl.pathname.split("/")[2];
-
-        window.location = baseUrl + "/ticket/" + ticketId;
-    });
-
     $("#AddComment").click(function() {
         $("#showCommentBox").show();
     });
@@ -99,7 +76,7 @@ $(document).ready(function() {
         $("#showReplyBox").hide();
     });
 
-    $("#userTableId tr").click(function() {
+    $(".viewTicketButton").click(function() {
         var id = $(this)
             .closest("tr")
             .attr("id");
