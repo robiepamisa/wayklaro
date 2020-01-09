@@ -89,9 +89,8 @@
                         <div class="col-md-2 offset-md-3">
                       <select name="user_role" id="user_role" class="form-control @error('user_role') is-invalid @enderror">
                        <option value="">Select role...</option>
-                      @foreach ($role as $r)
-                          
-                          <option value="{{ $r->id }}">{{ $r->role_name }}</option>
+                      @foreach ($arr as $r)
+                          <option value="{{ $r->id }}">{{ $r->role }}</option>
                         @endforeach 
                       </select>
                                 @error('user_role')

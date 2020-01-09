@@ -35,8 +35,9 @@ class Manage_usersController extends Controller
     public function create()
     
     {
-      $arr['role'] = Role::all();
-      return view('admin.manage_users.create')->with($arr);
+      $arr= Role::all();
+      
+      return view('admin.manage_users.create',compact('arr'));
     }
 
     /**
