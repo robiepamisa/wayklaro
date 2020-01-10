@@ -41,7 +41,7 @@
 
                         <div class="form-group row">
                            
-
+                        
                             <div class="col-md-5 offset-md-3">
                                 <input id="name" placeholder="{{ __('Name') }}" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 

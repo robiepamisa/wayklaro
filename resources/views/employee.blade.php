@@ -22,10 +22,9 @@
                 </tr>
                   @foreach($tickets as $tickets)
                   <tr id="row{{$loop->iteration}}">
-                  <form action="{{url('employee/submit')}}" method="POST">
                   @csrf
                     <td>
-                      <input type="text" name="id" readonly class="form-control-plaintext"  hidden value="{{$tickets->ticket_id}}">{{$loop->iteration}}
+                      <input type="text" name="id" readonly class="form-control-plaintext hidden-ticket"  hidden value="{{$tickets->ticket_id}}">{{$loop->iteration}}
                     </td>
                     <td>
                       <input type="text" name="subject" readonly class="form-control-plaintext"  value="{{$tickets->subject}}">
@@ -52,13 +51,11 @@
                     </td>
                     <td>                  
                     @if($tickets->status->id == 2)
-                    <button type="submit" class="btn btn-warning" name="status" value="1">Not Resolve</button>
-                      </form>
+                    <button type="text" class="btn btn-danger statusUpdate" data-toggle="modal" data-target="#statusUpdate" name="status" value="1">Not Resolve</button>
                     @else
-                        <button type="submit" class="btn btn-success" name="status" value="2">Solve</button>
-                      </form>
+                        <button type="text" class="btn btn-success statusUpdate" data-toggle="modal" data-target="#statusUpdate" name="status" value="2">Solve</button>
                     @endif
-                    <button type="button" class="viewTicketButton btn btn-warning" >View Ticket</button>
+                    <button type="button" class="viewTicketButton btn btn-warning" >View</button>
                     </td>
 
 
@@ -71,6 +68,33 @@
                       
 
             </div>
+            <!-- modal -->
+            <div class="modal fade" id="statusUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <form action="{{url('employee/submit')}}" method="POST">
+              @csrf
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <input type="hidden" value="" name="ticket_id" id="ticket_id">
+                      <input type="hidden" value="" name="status_id" id="status_id">
+
+                      Are you sure you want to update the status ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                      <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- endmodal -->
           </section>
 
 @endsection

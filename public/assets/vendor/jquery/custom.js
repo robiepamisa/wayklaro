@@ -99,4 +99,25 @@ $(document).ready(function() {
 
         window.location = baseUrl + "/ticket/" + ticketId;
     });
+
+    $(".statusUpdate").click(function() {
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+        var tic_id = $(rowId)
+            .children("td")
+            .children(".hidden-ticket")
+            .val();
+        var status = $(rowId)
+            .children("td")
+            .children(".statusUpdate")
+            .val();
+        $("#ticket_id")
+            .val(tic_id)
+            .change();
+        $("#status_id")
+            .val(status)
+            .change();
+    });
 });

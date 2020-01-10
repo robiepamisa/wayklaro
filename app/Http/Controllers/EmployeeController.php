@@ -27,9 +27,8 @@ class EmployeeController extends Controller
 
     public function statusSubmit(Request $request)
     {
-        
-        Ticket::where('ticket_id',$request['id'])
-                ->update(['status_id'=>$request['status']]);
+        Ticket::where('ticket_id',$request['ticket_id'])
+                ->update(['status_id'=>$request['status_id']]);
                 return redirect(url("employee"));
     }
 }
