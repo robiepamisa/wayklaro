@@ -101,6 +101,7 @@ $(document).ready(function() {
     });
 
     $(".statusUpdate").click(function() {
+        console.log("asdasd");
         var id = $(this)
             .closest("tr")
             .attr("id");
@@ -109,9 +110,31 @@ $(document).ready(function() {
             .children("td")
             .children(".hidden-ticket")
             .val();
+        console.log(id);
         var status = $(rowId)
             .children("td")
             .children(".statusUpdate")
+            .val();
+        $("#ticket_id")
+            .val(tic_id)
+            .change();
+        $("#status_id")
+            .val(status)
+            .change();
+    });
+    $(".statusUpdate2").click(function() {
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+        var tic_id = $(rowId)
+            .children("td")
+            .children(".hidden-ticket")
+            .val();
+
+        var status = $(rowId)
+            .children("td")
+            .children(".statusUpdate2")
             .val();
         $("#ticket_id")
             .val(tic_id)

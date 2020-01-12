@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::get('/ticket/{ticketId}','HomeController@ticket');
 Route::get('/ticketSubmit','TicketController@submitComment');
+Route::POST('/submit', 'TicketController@statusSubmit')->name('submitStatus');
 
 Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 
@@ -31,7 +33,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){
 
 			Route::get('/', 'EmployeeController@index')->name('employee');
-			Route::POST('/submit', 'EmployeeController@statusSubmit')->name('submitStatus');
+			
 });
 
 Route::group(['prefix' => 'user','middleware' => ['userrole']], function(){

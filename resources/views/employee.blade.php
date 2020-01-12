@@ -70,7 +70,7 @@
             </div>
             <!-- modal -->
             <div class="modal fade" id="statusUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <form action="{{url('employee/submit')}}" method="POST">
+              <form action="{{url('/submit')}}" method="POST">
               @csrf
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">

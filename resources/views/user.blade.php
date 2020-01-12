@@ -25,6 +25,7 @@
             
             </div>
             <div class="form-group">
+            <label for="">Priority</label>
             <select name="priority_id" id="priority_id" class="form-control">
                       
                        @foreach ($priority as $prio)

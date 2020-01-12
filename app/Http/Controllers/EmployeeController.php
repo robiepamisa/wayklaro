@@ -24,11 +24,4 @@ class EmployeeController extends Controller
 
     	return view('employee',compact('tickets'));
     }
-
-    public function statusSubmit(Request $request)
-    {
-        Ticket::where('ticket_id',$request['ticket_id'])
-                ->update(['status_id'=>$request['status_id']]);
-                return redirect(url("employee"));
-    }
 }
