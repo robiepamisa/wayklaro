@@ -28,25 +28,28 @@
                     <td> <input type="hidden" class="hidden-ticket" value="{{$data->ticket_id}}">
                       {{$loop->iteration}}</td>
                     <td>{{$data->subject}}</td>
-                    <td>{{$data->description}}</td>
-                    <td class="row @if($data->priority->priority == 'LESS')
-                                       text-primary
-                                     @elseif($data->priority->priority == 'NORMAL')
-                                        text-warning
-                                        @else
-                                        text-danger
-                                        @endif" >{{$priority[$data->priority_id-1]->priority}}</td>
-                    <td class="@if($data->status->status_name == 'Resolved')
-                                            text-success
-                                        @else
-                                            text-danger
-                                        @endif">{{$data->status->status_name}}</td>
+                    <td class="ellipsis" style="text-overflow:ellipsis">{{$data->description}}</td>
+
+                    @if($data->priority->priority == 'LESS')
+                      <td class="text-primary">{{$data->priority->priority}}</td>
+                      @elseif($data->priority->priority == 'NORMAL')
+                      <td class="text-warning">{{$data->priority->priority}}</td>
+                      @else
+                      <td class="text-danger">{{$data->priority->priority}}</td> 
+                    @endif
+
+                    @if($data->status->status_name == 'Resolved')
+                      <td class="text-success">{{$data->status->status_name}}</td>
+                      @else
+                      <td class="text-danger">{{$data->status->status_name}}</td>
+                    @endif
+                    
                     @if(isset($data->assigned->name))
                       <td class="rowAssign text-gray-900">{{$data->assigned->name}}</td>
                     @else
                       <td class="rowAssign">Pending..</td>  
                     @endif
-                    <td>
+                    <td class="actionWidth">
                       @if($data->status->id == 2)
                       <button type="text" class="btn btn-danger statusUpdate2" data-toggle="modal" data-target="#statusUpdate"  name="status" value="1">Not Resolve</button>
                       @else

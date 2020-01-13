@@ -4,3 +4,14 @@
 .commentRowLeft {
     text-align: left;
 }
+.ellipsis {
+    text-overflow: ellipsis;
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+    width: 38%;
+}
+.actionWidth {
+    width: 21%;
+}
