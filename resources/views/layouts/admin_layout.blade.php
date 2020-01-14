@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Project-Sekido</title>
+  <title>Hozzby-Support</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/Customstyle.css') }}">
-  <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
    
 </head>
 
@@ -36,7 +36,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>       
+        <div class="sidebar-brand-text mx-3">Hozzby<sup>Support</sup></div>       
       </a>
 
       <hr class="sidebar-divider my-0">
@@ -63,15 +63,19 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item
-      @if($segment=='manage_users')
-      active
-      @endif
-
-      ">
+      <li class="nav-item">
         <a class="nav-link" href="{{ route('manage_users.index') }}">
           <i class="fas fa-fw fa-user-plus"></i>
-          <span>Manage users</span></a>
+          <span>View All User</span></a>
+      </li>
+            <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item @if($segment=='allEmployee')
+      active
+      @endif">
+        <a class="nav-link" href="{{url('/admin/allEmployee')}}">
+          <i class="fas fa-fw fa-user-circle"></i>
+          <span>View All Employees</span></a>
       </li>
             <!-- Divider -->
       <hr class="sidebar-divider my-0">

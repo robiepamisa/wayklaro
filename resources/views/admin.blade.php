@@ -39,22 +39,21 @@
                                           @endif
                         ">{{ $tickets->status->status_name }}</td>
                       @if(isset($tickets->assigned->name))
-                        <td class="rowAssign">{{$tickets->assigned->name}}</td>
+                      <td class="rowAssign"><a href="{{url('profile/')}}/{{$tickets->assign_to}}">{{$tickets->assigned->name}}</a></td>
                       @else
                         <td class="rowAssign">None</td>  
                       @endif
-                      <td>
+                      <td class="actionWidth">
                       @if(isset($tickets->assigned->name))
                           <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
                       @else
                             <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
                       @endif
-                      <button type="button" class="viewTicketButton btn btn-warning" >View Ticket</button>
+                      <button type="button" class="viewTicketButton btn btn-warning" >View</button>
                       </td>                   
                   </tr>
                 
                   @endforeach
-                
               </table>
                 
                   @csrf

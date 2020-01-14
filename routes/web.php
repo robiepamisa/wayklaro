@@ -16,10 +16,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/ticket/{ticketId}','HomeController@ticket');
 Route::get('/ticketSubmit','TicketController@submitComment');
 Route::POST('/submit', 'TicketController@statusSubmit')->name('submitStatus');
+Route::get('profile/{profileId}','HomeController@profileViewer');
 
 Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 
@@ -27,7 +27,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 			Route::post('/', 'HomeController@store');
 			Route::resource('manage_users', 'Manage_usersController');
 			Route::POST('/saving-credentials','HomeController@updateCreds');
-
+			Route::get('/allEmployee','HomeController@viewEmployee');
 });
 
 Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){

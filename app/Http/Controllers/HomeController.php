@@ -106,4 +106,33 @@ class HomeController extends Controller
         $ticket = Ticket::where('ticket_id',$ticketID)->first();
         return view("ticket",compact('view','ticket','comments'));
     }
+
+    public function profileViewer($profileId)
+    {
+        $layout = "";
+        if(Auth::User()->user_role == 1)
+        {
+            $layout = "layouts.admin_layout";
+        }
+        else if(Auth::User()->user_role == 2)
+        {
+            $layout = "layouts.employee_layout";
+        }
+        else if(Auth::User()->user_role == 3)
+        {
+            
+            $layout = "layouts.user_layout";
+        }
+
+        $data = User::where('id',$profileId)->first();
+        $user = $data->only(['name','email','company_name']);
+
+        return view('profile',compact('layout','user'));
+    }
+
+    public function viewEmployee()
+    {
+        $employee = User::where('user_role','2')->get();
+        return view('admin.viewEmployee',compact('employee'));
+    }
 }
