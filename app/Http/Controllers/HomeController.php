@@ -135,4 +135,11 @@ class HomeController extends Controller
         $employee = User::where('user_role','2')->get();
         return view('admin.viewEmployee',compact('employee'));
     }
+
+    public function userStatus(Request $request)
+    {
+        User::Where('id',$request['_id'])
+                    ->update(['user_status'=>$request['_status']]);
+        return back()->with(['success'=>'Successfully Updated.']);
+    }
 }

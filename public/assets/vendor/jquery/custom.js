@@ -70,7 +70,6 @@ $(document).ready(function() {
 
     $(".replyComment").click(function() {
         $("#showReplyBox").show();
-        console.log("asd");
     });
     $(".cancelReplyComment").click(function() {
         $("#showReplyBox").hide();
@@ -101,7 +100,6 @@ $(document).ready(function() {
     });
 
     $(".statusUpdate").click(function() {
-        console.log("asdasd");
         var id = $(this)
             .closest("tr")
             .attr("id");
@@ -141,6 +139,28 @@ $(document).ready(function() {
             .change();
         $("#status_id")
             .val(status)
+            .change();
+    });
+
+    $(".userStatusButton").click(function() {
+        console.log("asdasd");
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+        var user_id = $(rowId)
+            .children("td")
+            .children(".hidden-id")
+            .val();
+        var user_status = $(rowId)
+            .children("td")
+            .children(".userStatusButton")
+            .val();
+        $("#_id")
+            .val(user_id)
+            .change();
+        $("#_status")
+            .val(user_status)
             .change();
     });
 });

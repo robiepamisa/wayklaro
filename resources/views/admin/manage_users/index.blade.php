@@ -3,7 +3,7 @@
 
 <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Manage users</h1>
+            <h1 class="h3 mb-0 text-gray-800">View All User</h1>
           </div>
 
           <!-- Content Row -->
@@ -39,16 +39,18 @@
           			</tr>
 
           			@foreach($users as $u)
-          				<tr>            
-          					<td id="hideColumn" >{{ $u->id }}</td>
-                    <td> {{ $loop->iteration }} </td>
+          				<tr id="row{{$loop->iteration}}"> 
+                    <td> <input type="hidden" class="hidden-id" value="{{$u->id}}">{{ $loop->iteration }} </td>
           					<td>{{ $u->name }}</td>
           					<td>{{ $u->email }}</td>
-                    <td  id="hideColumn">{{ $u->user_role }}</td>
                     <td>
                       <button class="btn btn-info" data-uname="{{ $u->name }}" data-email="{{ $u->email }}" data-role="{{ $u->user_role }}" data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#EditModal">Edit</button>
                       <button class="btn btn-danger" data-uname="{{ $u->name }}?"  data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#DeleteModal">Delete</button>
-                      
+                      @if($u->user_status == '0')
+                      <button class="btn btn-success userStatusButton" value="1" data-toggle="modal" id="userStatusButton" data-target="#approveUser">Activate</button>
+                      @else
+                      <button class="btn btn-warning userStatusButton" value="0" data-toggle="modal" id="userStatusButton" data-target="#approveUser">Deactivate</button>
+                      @endif
                     </td>
           				</tr>
           			@endforeach
@@ -56,41 +58,71 @@
           		</table>
 
           	</div>
+            <!-- approve user modal -->
+            <div class="modal fade" id="approveUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header bg-gradient-primary text-white">
+                    <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Update!</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                    <form method="get" action="{{url('admin/submit-status')}}">
+                      @csrf
+                      
+                  <div class="modal-body ">
+                    <p class="text-center">Are you sure you want to <strong>UPDATE</strong></p>
+                    <input type="hidden" name="_id" id="_id" value="">
+                    <input type="hidden" name="_status" id="_status" value="">
+
+                  </div>
+                  <div class="modal-footer">
+                                
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                      <button class="btn btn-danger" type="submit">Yes!</button>
+                      
+                                
+                  </div>
+                    </form>
+                </div>
+              </div>
+            </div>
 
 
 
 
           	<!-- delete user modal -->
             <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-gradient-danger text-white">
-          <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Delete confirmation</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-           <form method="post" action="{{ route('manage_users.destroy','id') }}">
-            @method('DELETE')
-            @csrf
-            
-        <div class="modal-body ">
-          <p class="text-center">Are you sure you want to "remove"</p>
-          <input class=" col-md-12 text-center" type="text" name="user_name" id="u_name" value="" disabled>
-          
-          <input type="hidden" name="user_id" id="u_id" value="">
-        </div>
-        <div class="modal-footer">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header bg-gradient-danger text-white">
+                    <h5 id="modal-title" class="modal-title" id="exampleModalLabel">Delete confirmation</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                    <form method="post" action="{{ route('manage_users.destroy','id') }}">
+                      @method('DELETE')
+                      @csrf
                       
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
-            <button class="btn btn-danger" type="submit">Yes!</button>
-            
+                  <div class="modal-body ">
+                    <p class="text-center">Are you sure you want to "remove"</p>
+                    <input class=" col-md-12 text-center" type="text" name="user_name"  value="" disabled>
+                    
+                    <input type="hidden" name="user_id"  value="">
+                  </div>
+                  <div class="modal-footer">
+                                
+                      <button class="btn btn-secondary" type="button" data-dismiss="modal">No</button>
+                      <button class="btn btn-danger" type="submit">Yes!</button>
                       
-        </div>
-          </form>
-      </div>
-    </div>
-  </div>
+                                
+                  </div>
+                    </form>
+                </div>
+              </div>
+            </div>
 
         <!-- add new user modal -->
 
@@ -109,7 +141,7 @@
         <div class="modal-body ">
          
                         
-                        <input type="hidden" name="user_id" id="u_id" value="">
+                        <input type="hidden" name="user_id" value="">
                         <div class="form-group row">
                            
                             <label class="col-md-3 text-right">name</label>
@@ -144,7 +176,7 @@
                         <div class="col-md-7">
                       <select name="user_role" id="user_role" class="form-control">
                      @foreach ($role as $r)                         
-                          <option value="{{ $r->id }}">{{ $r->role }}</option>
+                          <option value="{{ $r->id }}">{{ $r->role_name }}</option>
                         @endforeach 
                       </select>
                     </div>

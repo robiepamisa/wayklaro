@@ -28,6 +28,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 			Route::resource('manage_users', 'Manage_usersController');
 			Route::POST('/saving-credentials','HomeController@updateCreds');
 			Route::get('/allEmployee','HomeController@viewEmployee');
+			Route::get('/submit-status','HomeController@userStatus');
 });
 
 Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){

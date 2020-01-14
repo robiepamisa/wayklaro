@@ -21,10 +21,10 @@ class Manage_usersController extends Controller
      */
     public function index()
     {  
-       $arr['users'] = User::all();
-       $role['role'] = Role::all();
+       $users = User::Where('user_role','3')->get();
+       $role = Role::all();
 
-        return view('admin.manage_users.index')->with($arr)->with($role);
+        return view('admin.manage_users.index',compact('users','role'));
     }
 
     /**
