@@ -30,7 +30,7 @@ class AddDataToStatusTable extends Migration
      */
     public function down()
     {
-       DB::table('status')->where('status','=','Not resolve')->delete();
-       DB::table('status')->where('status','=','Resolve')->delete();
+       DB::table('status')->where('status_name','=','Not resolve')->delete();
+       DB::table('status')->where('status_name','=','Resolve')->delete();
     }
 }

@@ -39,6 +39,14 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                           
+
+                            <div class="col-md-11 offset-md-1">
+                                <input id="company" placeholder="Company Name" type="text" class="form-control" name="company" required autofocus>
+
+                            </div>
+                        </div>
 
                         <div class="form-group row">
 

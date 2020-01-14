@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -12,7 +13,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'Unverified' => 'Your account is not yet verified please contact the administrator.',
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
