@@ -18,10 +18,15 @@ class EmployeeController extends Controller
     public function index()
     {
         $id = Auth::id();
-        
-        $tickets = Ticket::where('assign_to',$id)->paginate(5);
-        
-
-    	return view('employee',compact('tickets'));
+        $count = Ticket::where('assign_to',$id)->count();
+        if($count > 5)
+        {
+            $ticket = Ticket::where('assign_to',$id)->paginate(5);
+        }
+        else
+        {
+            $ticket = Ticket::where('assign_to',$id)->get();
+        }
+    	return view('employee',compact('ticket','count'));
     }
 }

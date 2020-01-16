@@ -21,9 +21,9 @@
                   <th>Assign to</th>
                   <th>Action</th>
                 </tr>
-                @if(isset($data))
+                @if(isset($ticket))
 
-                @foreach($data as $data)
+                @foreach($ticket as $data)
                 <tr id="row{{$loop->iteration}}">
                     <td> <input type="hidden" class="hidden-ticket" value="{{$data->ticket_id}}">
                       {{$loop->iteration}}</td>
@@ -67,7 +67,7 @@
               </table>
                 <nav aria-label="Page navigation">
                   <ul class="pagination paginationNav">
-                    <li>{{$data->links()}}</li>
+                    <li>{{$ticket->links()}}</li>
                   </ul>
                 </nav>
                 

@@ -16,10 +16,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/ticket/{ticketId}','HomeController@ticket');
-Route::get('/ticketSubmit','TicketController@submitComment');
-Route::POST('/submit', 'TicketController@statusSubmit')->name('submitStatus');
-Route::get('profile/{profileId}','HomeController@profileViewer');
+	Route::get('/ticket/{ticketId}','HomeController@ticket')->middleware('auth');
+	Route::get('/ticketSubmit','TicketController@submitComment')->middleware('auth');
+	Route::POST('/submit', 'TicketController@statusSubmit')->middleware('auth');
+	Route::get('profile/{profileId}','HomeController@profileViewer')->middleware('auth');
+	
 
 Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 
