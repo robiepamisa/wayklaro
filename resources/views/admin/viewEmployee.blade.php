@@ -39,7 +39,7 @@
           			@foreach($employee as $u)
           				<tr id="row{{$loop->iteration}}">            
                             <td>{{ $loop->iteration }} </td>
-          					<td>{{ $u->name }}</td>
+          					<td><a href="{{url('profile')}}/{{$u->id}}">{{ $u->name }}</a></td>
           					<td>{{ $u->email }}</td>
           					<td>{{ $u->company_name }}</td>
                             <td>

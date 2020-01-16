@@ -45,7 +45,8 @@
                     @endif
                     
                     @if(isset($data->assigned->name))
-                      <td class="rowAssign text-gray-900">{{$data->assigned->name}}</td>
+                      <td class="rowAssign text-gray-900">
+                      <a href="{{url('profile')}}/{{$data->assign_to}}">{{$data->assigned->name}}</a></td>
                     @else
                       <td class="rowAssign">Pending..</td>  
                     @endif
