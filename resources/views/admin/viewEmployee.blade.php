@@ -49,6 +49,11 @@
           			@endforeach
           			
           		</table>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination paginationNav">
+                    <li>{{$employee->links()}}</li>
+                    </ul>
+                </nav>
 
           	</div>
               <!-- delete user modal -->

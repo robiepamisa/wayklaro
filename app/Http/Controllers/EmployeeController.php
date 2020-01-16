@@ -19,7 +19,7 @@ class EmployeeController extends Controller
     {
         $id = Auth::id();
         
-        $tickets = Ticket::where('assign_to',$id)->get();
+        $tickets = Ticket::where('assign_to',$id)->paginate(5);
         
 
     	return view('employee',compact('tickets'));

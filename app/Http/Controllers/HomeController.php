@@ -37,19 +37,11 @@ class HomeController extends Controller
                         ->update(['assign_to'=>$_GET['eid']]);
         }
 
-        $ticket = Ticket::orderBy('status_id')->get();
+        $ticket = Ticket::orderBy('status_id')->paginate(5);
         $status = Status::all();
         $priority = Priority::all();
         $employees = User::where('user_role', 2)->get();
-        // $signedTicket = DB::table('tickets')
-        //                 ->join('users','tickets.assign_to','users.id')
-        //                 ->join('status','tickets.status_id','status.id')
-        //                 ->get();
-        
-        
-       
-        
-        
+
         return view('admin',compact('employees','ticket','status','priority'));
       
     }
@@ -132,7 +124,7 @@ class HomeController extends Controller
 
     public function viewEmployee()
     {
-        $employee = User::where('user_role','2')->get();
+        $employee = User::where('user_role','2')->paginate(5);
         return view('admin.viewEmployee',compact('employee'));
     }
 

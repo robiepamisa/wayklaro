@@ -65,6 +65,11 @@
                      
                 
               </table>
+                <nav aria-label="Page navigation">
+                  <ul class="pagination paginationNav">
+                    <li>{{$data->links()}}</li>
+                  </ul>
+                </nav>
                 
                   @csrf
               </form>

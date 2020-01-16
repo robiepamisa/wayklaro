@@ -56,6 +56,11 @@
           			@endforeach
           			
           		</table>
+              <nav aria-label="Page navigation">
+                <ul class="pagination paginationNav">
+                  <li>{{$users->links()}}</li>
+                </ul>
+              </nav>
 
           	</div>
             <!-- approve user modal -->

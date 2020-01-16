@@ -21,7 +21,8 @@ class Manage_usersController extends Controller
      */
     public function index()
     {  
-       $users = User::Where('user_role','3')->get();
+       $users = User::Where('user_role','3')->paginate(5);
+       
        $role = Role::all();
 
         return view('admin.manage_users.index',compact('users','role'));

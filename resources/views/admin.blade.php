@@ -55,6 +55,11 @@
                 
                   @endforeach
               </table>
+              <nav aria-label="Page navigation">
+                <ul class="pagination paginationNav">
+                  <li>{{$ticket->links()}}</li>
+                </ul>
+              </nav>
                 
                   @csrf
               
