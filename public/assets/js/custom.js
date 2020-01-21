@@ -59,28 +59,25 @@ $(document).ready(function() {
             .val(rowId)
             .change();
     });
-    
 });
 
-$('#DeleteModal').on('show.bs.modal',function(event){
-      var button = $(event.relatedTarget)
-      var u_id = button.data('uid')
-      var u_name = button.data('uname')
-      var modal = $(this)
-      modal.find('.modal-body #u_id').val(u_id);
-      modal.find('.modal-body #u_name').val(u_name);
-
-    });
-$('#EditModal').on('show.bs.modal',function(event){
-      var button = $(event.relatedTarget)
-      var u_id = button.data('uid')
-      var u_name = button.data('uname')
-      var u_email = button.data('email')
-      var u_role = button.data('role')
-      var modal = $(this)
-      modal.find('.modal-body #u_id').val(u_id);
-      modal.find('.modal-body #name').val(u_name);
-      modal.find('.modal-body #email').val(u_email);
-      modal.find('.modal-body #user_role').val(u_role);
-
-    });
+$("#DeleteModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    var u_id = button.data("uid");
+    var u_name = button.data("uname");
+    var modal = $(this);
+    modal.find(".modal-body #u_id").val(u_id);
+    modal.find(".modal-body #u_name").val(u_name);
+});
+$("#EditModal").on("show.bs.modal", function(event) {
+    var button = $(event.relatedTarget);
+    var u_id = button.data("uid");
+    var u_name = button.data("uname");
+    var u_email = button.data("email");
+    var u_role = button.data("role");
+    var modal = $(this);
+    modal.find(".modal-body #u_id").val(u_id);
+    modal.find(".modal-body #name").val(u_name);
+    modal.find(".modal-body #email").val(u_email);
+    modal.find(".modal-body #user_role").val(u_role);
+});

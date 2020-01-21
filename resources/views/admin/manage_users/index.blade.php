@@ -36,7 +36,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                <th>Id</th>
+                    <th>Id</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Actions</th>
@@ -59,7 +59,7 @@
           					<td>{{ $u->email }}</td>
                     <td>
                       <button class="btn btn-info" data-uname="{{ $u->name }}" data-email="{{ $u->email }}" data-role="{{ $u->user_role }}" data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#EditModal">Edit</button>
-                      <button class="btn btn-danger" data-uname="{{ $u->name }}?"  data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#DeleteModal">Delete</button>
+                      <button class="btn btn-danger deleteUserButton" data-uname="{{ $u->name }}?"  data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#DeleteModal">Delete</button>
                       @if($u->user_status == '0')
                       <button class="btn btn-success userStatusButton" value="1" data-toggle="modal" id="userStatusButton" data-target="#approveUser">Activate</button>
                       @else
@@ -126,8 +126,8 @@
                       
                   <div class="modal-body ">
                     <p class="text-center">Are you sure you want to "remove"</p>
-                    
-                    <input type="hidden" name="user_id"  value="">
+
+                    <input type="hidden" id="user_id" name="user_id"  value="">
                   </div>
                   <div class="modal-footer">
                                 

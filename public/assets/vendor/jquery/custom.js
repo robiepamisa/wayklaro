@@ -108,7 +108,6 @@ $(document).ready(function() {
             .children("td")
             .children(".hidden-ticket")
             .val();
-        console.log(id);
         var status = $(rowId)
             .children("td")
             .children(".statusUpdate")
@@ -143,7 +142,6 @@ $(document).ready(function() {
     });
 
     $(".userStatusButton").click(function() {
-        console.log("asdasd");
         var id = $(this)
             .closest("tr")
             .attr("id");
@@ -161,6 +159,21 @@ $(document).ready(function() {
             .change();
         $("#_status")
             .val(user_status)
+            .change();
+    });
+
+    $(".deleteUserButton").click(function() {
+        var id = $(this)
+            .closest("tr")
+            .attr("id");
+        var rowId = "#" + id;
+
+        var user_id = $(rowId)
+            .children("td")
+            .children(".hidden-id")
+            .val();
+        $("#user_id")
+            .val(user_id)
             .change();
     });
 });

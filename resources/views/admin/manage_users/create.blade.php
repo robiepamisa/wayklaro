@@ -90,7 +90,7 @@
                       <select name="user_role" id="user_role" class="form-control @error('user_role') is-invalid @enderror">
                        <option value="">Select role...</option>
                       @foreach ($arr as $r)
-                          <option value="{{ $r->id }}">{{ $r->role }}</option>
+                          <option value="{{ $r->id }}">{{ $r->role_name }}</option>
                         @endforeach 
                       </select>
                                 @error('user_role')
