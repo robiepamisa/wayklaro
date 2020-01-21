@@ -21,7 +21,7 @@ class Manage_usersController extends Controller
      */
     public function index()
     {  
-       $users = User::Where('user_role','3')->paginate(5);
+       $users = User::Where('user_role','3')->get();
        
        $role = Role::all();
 

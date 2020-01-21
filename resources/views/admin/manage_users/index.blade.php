@@ -28,20 +28,34 @@
 		          <p>
           			<a class="btn btn-primary" href="{{ route('manage_users.create') }}">Add New User</a>
           		</p>
-          		<table class="table table-bordered table-striped">
-          			<tr>
-                  <th id="hideColumn" >user_id</th>
-          				<th>ID</th>
-          				<th>Name</th>
-          				<th>Email</th>
-                  <th id="hideColumn" >user_role</th>
-          				<th>Actions</th>
-          			</tr>
-
+          		<!-- DataTales Example -->
+        <div class="card shadow mb-4">
+      
+          <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                    
+                </tr>
+                </tfoot>
+                <tbody>
           			@foreach($users as $u)
           				<tr id="row{{$loop->iteration}}"> 
                     <td> <input type="hidden" class="hidden-id" value="{{$u->id}}">{{ $loop->iteration }} </td>
-          					<td>{{ $u->name }}</td>
+          					<td><a href="{{url('/profile')}}/{{$u->id}}">{{ $u->name }}</a></td>
           					<td>{{ $u->email }}</td>
                     <td>
                       <button class="btn btn-info" data-uname="{{ $u->name }}" data-email="{{ $u->email }}" data-role="{{ $u->user_role }}" data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#EditModal">Edit</button>
@@ -55,12 +69,11 @@
           				</tr>
           			@endforeach
           			
-          		</table>
-              <nav aria-label="Page navigation">
-                <ul class="pagination paginationNav">
-                  <li>{{$users->links()}}</li>
-                </ul>
-              </nav>
+              </tbody>
+        </table>
+        </div>
+    </div>
+             
 
           	</div>
             <!-- approve user modal -->
@@ -113,7 +126,6 @@
                       
                   <div class="modal-body ">
                     <p class="text-center">Are you sure you want to "remove"</p>
-                    <input class=" col-md-12 text-center" type="text" name="user_name"  value="" disabled>
                     
                     <input type="hidden" name="user_id"  value="">
                   </div>
@@ -203,8 +215,7 @@
   </div>  
 
         
-          
-
+<div class="fhgf"></div>
 
 
 @endsection

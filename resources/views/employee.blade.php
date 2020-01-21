@@ -4,7 +4,7 @@
 	
 	<!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Assigned Tickets</h1>
+            <h1 class="h3 mb-0 text-gray-800 m-2">Assigned Tickets</h1>
 
           </div>
            <!-- Content Row -->
@@ -12,13 +12,14 @@
             <div class="container-fluid">
             <!-- search -->
             <nav class="navbar navbar-light bg-light paginationNav">
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <form class="form-inline" action="{{url('employee/search')}}" method="get">
+              @csrf
+                <input class="form-control mr-sm-2" type="search" name="key" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
             </nav>
             <!-- endsearch -->
-            <table class="table table-bordered table-striped " id="table_row_id">
+            <table class="table table-bordered table-striped dataTable" id="dataTable">
                 <tr>
                   <th>ID</th>
                   <th>Subject</th>

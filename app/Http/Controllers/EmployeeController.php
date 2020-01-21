@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Ticket;
 use Auth;
+use DB;
 
 class EmployeeController extends Controller
 {
@@ -28,5 +29,14 @@ class EmployeeController extends Controller
             $ticket = Ticket::where('assign_to',$id)->get();
         }
     	return view('employee',compact('ticket','count'));
+    }
+
+    public function search(Request $request)
+    {
+        $ticket = Ticket::where('ticket_id','like',$request['key'].'%')
+                                    ->orWhere('subject','like',$request['key'].'%')
+                                    ->orWhere('description','like',$request['key'].'%')
+                                    ->paginate(5);
+        return view('employee',compact('ticket'));
     }
 }

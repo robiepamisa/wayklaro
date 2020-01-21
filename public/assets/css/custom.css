@@ -22,3 +22,6 @@
 .paginationNav {
     float: right;
 }
+.custom-select-sm {
+    width: 39% !important;
+}

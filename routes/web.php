@@ -15,6 +15,11 @@ Route::get('/', function () {
     return redirect('login');
 });
 
+Route::get('/test',function()
+{
+	return view('test');
+});
+
 Auth::routes();
 	Route::get('/ticket/{ticketId}','HomeController@ticket')->middleware('auth');
 	Route::get('/ticketSubmit','TicketController@submitComment')->middleware('auth');
@@ -35,6 +40,7 @@ Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 Route::group(['prefix' => 'employee','middleware' => ['employeerole']], function(){
 
 			Route::get('/', 'EmployeeController@index')->name('employee');
+			Route::get('/search','EmployeeController@search');
 			
 });
 

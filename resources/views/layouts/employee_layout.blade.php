@@ -20,6 +20,7 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 
 </head>
 
@@ -178,6 +179,7 @@
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery/custom.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery/timeago.js') }}"></script>
+  <script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   
 
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

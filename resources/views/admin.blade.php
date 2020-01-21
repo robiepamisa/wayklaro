@@ -9,64 +9,74 @@
 
           <!-- Content Row -->
 
-            <div class="container-fluid">
-              
-              <table class="table table-bordered table-striped ">
-                <tr>
-                  <th>ID</th>
-                  <th>Subject</th>
-                  <th>Description</th>
-                  <th>Priority</th>
-                  <th>Status</th>
-                  <th>Assign to</th>
-                  <th>Actions</th>
-                </tr>
-                
+          <div class="container-fluid">
 
-                     @foreach($ticket as $tickets)
-                
-                    <tr  id="row_{{$loop->iteration}}">
-                      <td class="rowID">
-                        <input type="text" class="custId"  name="ticket_id" hidden value="{{$tickets->ticket_id}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div>
-                      </td>
-                      <td class="rowSub">{{ $tickets->subject}}</td>
-                      <td class="rowDesc">{{ $tickets->description}}</td>
-                      <td class="rowPrio">{{ $tickets->priority->priority}}</td>
-                      <td class="rowStat @if($tickets->status->status_name == 'Resolved')
-                                              text-success
-                                          @else
-                                              text-danger
-                                          @endif
-                        ">{{ $tickets->status->status_name }}</td>
-                      @if(isset($tickets->assigned->name))
-                      <td class="rowAssign"><a href="{{url('profile/')}}/{{$tickets->assign_to}}">{{$tickets->assigned->name}}</a></td>
-                      @else
-                        <td class="rowAssign">None</td>  
-                      @endif
-                      <td class="actionWidth">
-                      @if(isset($tickets->assigned->name))
-                          <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
-                      @else
-                            <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
-                      @endif
-                      <button type="button" class="viewTicketButton btn btn-warning" >View</button>
-                      </td>                   
-                  </tr>
-                
-                  @endforeach
-              </table>
-              <nav aria-label="Page navigation">
-                <ul class="pagination paginationNav">
-                  <li>{{$ticket->links()}}</li>
-                </ul>
-              </nav>
-                
-                  @csrf
-              
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Assign To</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Subject</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Assign To</th>
+                        <th>Action</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                          @foreach($ticket as $tickets)
                       
+                          <tr  id="row_{{$loop->iteration}}">
+                            <td class="rowID">
+                              <input type="text" class="custId"  name="ticket_id" hidden value="{{$tickets->ticket_id}}" style="border: none;border-color: transparent;"> {{ $loop->iteration}} </div>
+                            </td>
+                            <td class="rowSub">{{ $tickets->subject}}</td>
+                            <td class="rowDesc">{{ $tickets->description}}</td>
+                            <td class="rowPrio">{{ $tickets->priority->priority}}</td>
+                            <td class="rowStat @if($tickets->status->status_name == 'Resolved')
+                                                    text-success
+                                                @else
+                                                    text-danger
+                                                @endif
+                              ">{{ $tickets->status->status_name }}</td>
+                            @if(isset($tickets->assigned->name))
+                            <td class="rowAssign"><a href="{{url('profile/')}}/{{$tickets->assign_to}}">{{$tickets->assigned->name}}</a></td>
+                            @else
+                              <td class="rowAssign">None</td>  
+                            @endif
+                            <td class="actionWidth">
+                            @if(isset($tickets->assigned->name))
+                                <button type="button" class="modalButton btn btn-primary" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Edit</button>
+                            @else
+                                  <button type="button" class="modalButton btn btn-success" data-toggle="modal" onclick="" data-target=".bd-example-modal-lg">Assign</button>
+                            @endif
+                            <button type="button" class="viewTicketButton btn btn-warning" >View</button>
+                            </td>                   
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                </div>
 
             </div>
-
             <!-- Modal content -->
                   <!-- Modal -->
                   <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
