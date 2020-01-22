@@ -27,35 +27,46 @@
                 <p>
           			<a class="btn btn-primary" href="{{ route('manage_users.create') }}">Add New User</a>
           		</p>
-          		<table class="table table-bordered table-striped">
-          			<tr>
-          				<th>ID</th>
-          				<th>Name</th>
-          				<th>Email</th>
-                        <th>Company</th>
-          				<th>Actions</th>
-          			</tr>
-
-          			@foreach($employee as $u)
-          				<tr id="row{{$loop->iteration}}">            
-                            <td>{{ $loop->iteration }} </td>
-          					<td><a href="{{url('profile')}}/{{$u->id}}">{{ $u->name }}</a></td>
-          					<td>{{ $u->email }}</td>
-          					<td>{{ $u->company_name }}</td>
-                            <td>
-                                <button class="btn btn-danger" data-uname="{{ $u->name }}?"  data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#DeleteModal">Delete</button>
-                            </td>
-          				</tr>
-          			@endforeach
-          			
-          		</table>
-                <nav aria-label="Page navigation">
-                    <ul class="pagination paginationNav">
-                    <li>{{$employee->links()}}</li>
-                    </ul>
-                </nav>
-
-          	</div>
+          		<div class="card shadow mb-4">
+                
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company</th>
+                                <th>Action</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                            @foreach($employee as $u)
+                                <tr id="row{{$loop->iteration}}">            
+                                    <td>{{ $loop->iteration }} </td>
+                                    <td><a href="{{url('profile')}}/{{$u->id}}">{{ $u->name }}</a></td>
+                                    <td>{{ $u->email }}</td>
+                                    <td>{{ $u->company_name }}</td>
+                                    <td>
+                                        <button class="btn btn-danger" data-uname="{{ $u->name }}?"  data-uid="{{ $u->id }}"  data-toggle="modal" data-target="#DeleteModal">Delete</button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
               <!-- delete user modal -->
             <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
