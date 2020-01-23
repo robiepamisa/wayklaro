@@ -9,25 +9,36 @@
           </div>
            <!-- Content Row -->
           <section class="content">
-            <div class="container-fluid">
-            <!-- search -->
-            <nav class="navbar navbar-light bg-light paginationNav">
-              <form class="form-inline" action="{{url('employee/search')}}" method="get">
-              @csrf
-                <input class="form-control mr-sm-2" type="search" name="key" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </nav>
-            <!-- endsearch -->
-            <table class="table table-bordered table-striped dataTable" id="dataTable">
+      <div class="container-fluid">
+
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Subject</th>
-                  <th>Description</th>
-                  <th>Priority</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                    <th>Id</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+                <tbody>
                   @foreach($ticket as $tickets)
                   <tr id="row{{$loop->iteration}}">
                   @csrf
@@ -57,7 +68,7 @@
                                                                                               @endif
                       " value="{{$tickets->status->status_name}}">
                     </td>
-                    <td>                  
+                    <td class="actionWidth">                  
                     @if($tickets->status->id == 2)
                     <button type="text" class="btn btn-danger statusUpdate" data-toggle="modal" data-target="#statusUpdate" name="status" value="1">Not Resolve</button>
                     @else
@@ -65,22 +76,15 @@
                     @endif
                     <button type="button" class="viewTicketButton btn btn-warning" >View</button>
                     </td>
-
-
-
-
-
                   </tr>
                   @endforeach
-              </table>
-              <nav aria-label="Page navigation">
-                <ul class="pagination paginationNav">
-                  <li>{{$ticket->links()}}</li>
-                </ul>
-              </nav>
-                      
-
+                  </tbody>
+                </table>
+                </div>
             </div>
+        </div>
+
+        </div>
             <!-- modal -->
             <div class="modal fade" id="statusUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <form action="{{url('/submit')}}" method="POST">

@@ -22,7 +22,7 @@ class EmployeeController extends Controller
         $count = Ticket::where('assign_to',$id)->count();
         if($count > 5)
         {
-            $ticket = Ticket::where('assign_to',$id)->paginate(5);
+            $ticket = Ticket::where('assign_to',$id)->get();
         }
         else
         {
