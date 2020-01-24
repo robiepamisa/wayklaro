@@ -9,18 +9,38 @@
 
           <!-- Content Row -->
           <section class="content">
-            <div class="container-fluid">
-              
-              <table class="table table-bordered table-striped ">
-                <tr> 
-                  <th>ID</th>
-                  <th>Subject</th>
-                  <th>Description</th>
-                  <th>Priority</th>
-                  <th>Status</th>
-                  <th>Assign to</th>
-                  <th>Action</th>
-                </tr>
+          <div class="container-fluid">
+
+
+            <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Subject</th>
+                      <th>Description</th>
+                      <th>Priority</th>
+                      <th>Status</th>
+                      <th>Assign To</th>
+                      <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                      <th>Id</th>
+                      <th>Subject</th>
+                      <th>Description</th>
+                      <th>Priority</th>
+                      <th>Status</th>
+                      <th>Assign To</th>
+                      <th>Action</th>
+                  </tr>
+                  </tfoot>
+                  <tbody>
                 @if(isset($ticket))
 
                 @foreach($ticket as $data)
@@ -64,18 +84,13 @@
 
                      
                 
-              </table>
-                <nav aria-label="Page navigation">
-                  <ul class="pagination paginationNav">
-                    <li>{{$ticket->links()}}</li>
-                  </ul>
-                </nav>
-                
-                  @csrf
-              </form>
-                      
-
+                  </tbody>
+                </table>
+                </div>
             </div>
+        </div>
+
+        </div>
 
               <!-- modal -->
               <div class="modal fade" id="statusUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
