@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use App\Ticket;
 use Illuminate\Http\Request;
+use App\Category;
 
 
 class UserController extends Controller
@@ -20,7 +21,8 @@ class UserController extends Controller
     public function index()
     {
         $priority = Priority::all();
-    	return view('user',compact('priority'));
+        $category = Category::all();
+    	return view('user',compact('priority','category'));
     }
     public function create()
     {
@@ -33,15 +35,9 @@ class UserController extends Controller
         $ticket = Ticket::Where('user_id',$id)->paginate(5);
         
         $priority = Priority::all();
-        
        
         
        return view('user.view-ticket',compact('ticket','priority'));
    }
 
-   public function createTicket()
-   {
-
-       return view('user');
-   }
 }

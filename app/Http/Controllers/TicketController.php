@@ -12,6 +12,7 @@ class TicketController extends Controller
     {
         $user_id = Auth::user()->id;
 
+
         Ticket::create([
             'subject'=>$request['subject'],
             'description'=>$request['description'],
@@ -19,6 +20,7 @@ class TicketController extends Controller
             'user_id'=>$user_id,
             'status_id'=>'1',
             'assign_to'=>'0',
+            'category_id' =>$request['category_id'],
         ]);
         
         return redirect(url('user/view-ticket'));
