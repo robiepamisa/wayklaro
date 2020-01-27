@@ -176,4 +176,5 @@ $(document).ready(function() {
             .val(user_id)
             .change();
     });
+    $(".js-example-basic-multiple").select2();
 });

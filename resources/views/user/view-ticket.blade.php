@@ -44,7 +44,7 @@
                 @if(isset($ticket))
 
                 @foreach($ticket as $data)
-                <tr id="row{{$loop->iteration}}">
+                <tr id="row{{$loop->iteration}}" class="grid {{$data->category}}">
                     <td> <input type="hidden" class="hidden-ticket" value="{{$data->ticket_id}}">
                       {{$loop->iteration}}</td>
                     <td>{{$data->subject}}</td>

@@ -27,7 +27,7 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                <label for=""><strong>Priority</strong></label>
+                <label for="priority_id"><strong>Priority</strong></label>
                 <select name="priority_id" id="priority_id" class="form-control">
                           <option selected>Choose...</option>
                           @foreach ($priority as $prio)
@@ -38,11 +38,10 @@
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                <label for=""><strong>Category</strong></label>
-                <select name="category_id" id="category_id" class="form-control">
-                          <option selected>Choose...</option>
+                <label for="category_id"><strong>Category</strong></label>
+                <select multiple="multiple" name="category_id[]" id="category_id" class="form-control js-example-basic-multiple">
                           @foreach ($category as $cat)
-                              <option value="{{ $cat->category_id }}">{{ $cat->category_name }}</option>
+                              <option value="{{ $cat->category_name }}">{{ $cat->category_name }}</option>
                           @endforeach 
                 </select>
                 </div>

@@ -12,7 +12,13 @@ class TicketController extends Controller
     {
         $user_id = Auth::user()->id;
 
-
+        $data = "";
+        $category = $request['category_id'];
+        $count = count($request['category_id']);
+        for($i = 0; $i < $count ; $i++)
+        {
+            $data = $data." ".$category[$i];
+        }
         Ticket::create([
             'subject'=>$request['subject'],
             'description'=>$request['description'],
@@ -20,8 +26,10 @@ class TicketController extends Controller
             'user_id'=>$user_id,
             'status_id'=>'1',
             'assign_to'=>'0',
-            'category_id' =>$request['category_id'],
+            'category' =>$data,
         ]);
+
+
         
         return redirect(url('user/view-ticket'));
     }
