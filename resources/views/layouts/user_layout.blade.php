@@ -185,8 +185,7 @@
   <!-- Bootstrap core JavaScript-->
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/jquery/custom.js') }}"></script>
-  <script src="{{ asset('assets/vendor/jquery/timeago.js') }}"></script>
-
+  <script src="{{ asset('assets/vendor/jquery/isotope.js') }}"></script>
   <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Core plugin JavaScript-->
@@ -209,7 +208,6 @@
   <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
   <!-- isotope -->
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 </body>
 

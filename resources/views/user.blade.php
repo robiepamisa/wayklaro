@@ -41,7 +41,7 @@
                 <label for="category_id"><strong>Category</strong></label>
                 <select multiple="multiple" name="category_id[]" id="category_id" class="form-control js-example-basic-multiple">
                           @foreach ($category as $cat)
-                              <option value="{{ $cat->category_name }}">{{ $cat->category_name }}</option>
+                              <option value="{{ $cat->category_id }}">{{ $cat->category_name }}</option>
                           @endforeach 
                 </select>
                 </div>

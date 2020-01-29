@@ -175,6 +175,20 @@ $(document).ready(function() {
         $("#user_id")
             .val(user_id)
             .change();
+
+        $(".categorySelect").on("change", function() {
+            console.log("asdasd");
+            $(this)
+                .closest("form")
+                .submit();
+            console.log("asdasd");
+        });
     });
     $(".js-example-basic-multiple").select2();
+
+    // $(".tableIsotope").isotope({
+    //     itemSelector: ".grid"
+    // });
+
+    $(".tableIsotope tr");
 });

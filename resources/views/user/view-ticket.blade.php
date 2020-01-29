@@ -4,8 +4,20 @@
 <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800 m-2">View Tickets</h1>
-
+            <div class="form-group col-sm-2">
+              <label for="categorySelect">Category</label>
+              <form name="PostName" action="{{url('/category')}}" method="get">
+                <select id="categorySelect" name="category" onchange="PostName.submit()" class="form-control">
+                  <option selected value="All">All</option>
+                  @foreach($category as $cat)
+                  <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
+                  @endforeach
+                </select>
+              </form>
+            </div>
           </div>
+
+          
 
           <!-- Content Row -->
           <section class="content">
@@ -13,11 +25,13 @@
 
 
             <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-
+        <div class="card shadow mb-4">
+        <!-- dropdown -->
+        
+        <!-- enddropdown -->
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-bordered tableIsotope" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                   <tr>
                       <th>Id</th>
@@ -81,9 +95,6 @@
                   @endforeach
                 </tr>
                 @endif
-
-                     
-                
                   </tbody>
                 </table>
                 </div>

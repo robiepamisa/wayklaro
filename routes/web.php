@@ -25,7 +25,7 @@ Auth::routes();
 	Route::get('/ticketSubmit','TicketController@submitComment')->middleware('auth');
 	Route::POST('/submit', 'TicketController@statusSubmit')->middleware('auth');
 	Route::get('profile/{profileId}','HomeController@profileViewer')->middleware('auth');
-	
+	Route::get('/category','TicketController@categories')->middleware('auth');
 
 Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){
 

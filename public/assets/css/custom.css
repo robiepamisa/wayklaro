@@ -28,3 +28,7 @@
 .actionWidth {
     width: 20%;
 }
+
+.form-group div {
+    display: inline-block;
+}

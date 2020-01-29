@@ -35,9 +35,11 @@ class UserController extends Controller
         $ticket = Ticket::Where('user_id',$id)->paginate(5);
         
         $priority = Priority::all();
+        $category = Category::all();
+
        
         
-       return view('user.view-ticket',compact('ticket','priority'));
+       return view('user.view-ticket',compact('ticket','priority','category'));
    }
 
 }
