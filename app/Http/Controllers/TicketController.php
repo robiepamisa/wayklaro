@@ -62,10 +62,20 @@ class TicketController extends Controller
 
     public function categories(Request $request)
     {
-        
-       $ticket = CategoryList::where('cat_id',$request['category'])->get();
+    
+        $data = CategoryList::where('cat_id',$request['category'])->get();
+        $count = count($data);
+        foreach($data as $data)
+        {
+            $tic_id[] = $data['tic_id'];
+        }      
 
-        return back()->with('ticket');        
+        for ($i=0; $i < $count; $i++) { 
+            $ticket[] = Ticket::where('ticket_id',$tic_id[$i])->first();
+        }
+
+
+        return url('view-ticket',compact('ticket'));        
 
     }
 }
