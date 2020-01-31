@@ -36,7 +36,7 @@ class EmployeeController extends Controller
         $ticket = Ticket::where('ticket_id','like',$request['key'].'%')
                                     ->orWhere('subject','like',$request['key'].'%')
                                     ->orWhere('description','like',$request['key'].'%')
-                                    ->paginate(5);
+                                    ->get();
         return view('employee',compact('ticket'));
     }
 }

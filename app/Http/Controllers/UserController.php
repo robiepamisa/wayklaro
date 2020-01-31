@@ -32,7 +32,7 @@ class UserController extends Controller
    public function viewTicket()
    {
         $id = Auth::user()->id;
-        $ticket = Ticket::Where('user_id',$id)->paginate(5);
+        $ticket = Ticket::Where('user_id',$id)->get();
         
         $priority = Priority::all();
         $category = Category::all();

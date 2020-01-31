@@ -124,7 +124,7 @@ class HomeController extends Controller
 
     public function viewEmployee()
     {
-        $employee = User::where('user_role','2')->paginate(5);
+        $employee = User::where('user_role','2')->get();
         return view('admin.viewEmployee',compact('employee'));
     }
 

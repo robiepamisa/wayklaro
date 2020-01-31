@@ -7,7 +7,9 @@ use App\Ticket;
 use Auth;
 use App\Comments;
 use App\Category;
+use App\Priority;
 use App\CategoryList;
+
 
 
 class TicketController extends Controller
@@ -65,17 +67,16 @@ class TicketController extends Controller
     
         $data = CategoryList::where('cat_id',$request['category'])->get();
         $count = count($data);
+        $priority = Priority::all();
+        $category = Category::all();
+        $ticket ="";
         foreach($data as $data)
         {
-            $tic_id[] = $data['tic_id'];
-        }      
-
-        for ($i=0; $i < $count; $i++) { 
-            $ticket[] = Ticket::where('ticket_id',$tic_id[$i])->first();
+            $ticket = $data->ticket()->get();
         }
+        
 
-
-        return url('view-ticket',compact('ticket'));        
+        return view('user.view-ticket',compact('ticket','category','priority'));        
 
     }
 }
