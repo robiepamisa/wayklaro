@@ -7,8 +7,8 @@
             <div class="form-group col-sm-2">
               <label for="categorySelect">Category</label>
               <form name="PostName" action="{{url('/category')}}" method="get">
-                <select id="categorySelect" name="category" onchange="PostName.submit()" class="form-control">
-                  <option selected value="All">All</option>
+                <select id="categorySelect" name="category"  class="form-control catSelectChange">
+                  <option selected="selected" value="0">All</option>
                   @foreach($category as $cat)
                   <option value="{{$cat->category_id}}">{{$cat->category_name}}</option>
                   @endforeach
@@ -94,6 +94,7 @@
                     </td>
                   @endforeach
                 </tr>
+                
                 @endif
                   </tbody>
                 </table>

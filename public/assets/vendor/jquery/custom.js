@@ -186,9 +186,13 @@ $(document).ready(function() {
     });
     $(".js-example-basic-multiple").select2();
 
-    // $(".tableIsotope").isotope({
-    //     itemSelector: ".grid"
-    // });
-
-    $(".tableIsotope tr");
+    var selected = localStorage.getItem("selected");
+    if (selected) {
+        $(".catSelectChange").val(selected);
+    }
+    $(".catSelectChange").change(function() {
+        console.log("asdasd");
+        localStorage.setItem("selected", $(this).val());
+        PostName.submit();
+    });
 });
