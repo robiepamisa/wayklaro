@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $table = 'category';
+    public $timestamps = false;
     protected $guarded = [];
 
-    public function tickets()
-    {
-    	return $this->hasMany(Ticket::class);
-    }
+   public function products()
+   {
+    return $this->hasMany(Products::class);
+
+   }
 
 }

@@ -1,12 +1,14 @@
 <?php $__env->startSection('content'); ?>
     <div class="row">
-        <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-6 d-none d-lg-block">
+        <img class="imageLogin m-2" src="<?php echo e(asset('assets/img/logo.png')); ?>" alt="">
+        </div>
           <div class="col-lg-6">
             <div class="p-4">
+
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-3">Create an Account!</h1>
               </div>        
-
                 <div class="card-body">
                     <form method="POST" action="<?php echo e(route('register')); ?>">
                         <?php echo csrf_field(); ?>
@@ -63,6 +65,14 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                           
+
+                            <div class="col-md-11 offset-md-1">
+                                <input id="company" placeholder="Company Name" type="text" class="form-control" name="company" required autofocus>
+
                             </div>
                         </div>
 

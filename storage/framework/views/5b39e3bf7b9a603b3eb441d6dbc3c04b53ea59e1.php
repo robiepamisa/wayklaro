@@ -5,6 +5,8 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="<?php echo e(asset('assets/img/logo.png')); ?>">
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -16,7 +18,9 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
+  <link href="<?php echo e(asset('assets/css/custom.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('assets/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
+  <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 
 </head>
 
@@ -29,11 +33,11 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e(url('/')); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>       
+        <div class="sidebar-brand-text mx-3">Hozzby<sup>Support</sup></div>       
       </a>
 
       <hr class="sidebar-divider my-0">
@@ -48,7 +52,7 @@
       active
       <?php endif; ?>
       ">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo e(url('/')); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>dashboard</span></a>
       </li>
@@ -60,16 +64,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item
-      <?php if($segment=='manage_users'): ?>
-      active
-      <?php endif; ?>
-
-      ">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-eye"></i>
-          <span>View assigned tickets</span></a>
-      </li>
+      
             <!-- Divider -->
       <hr class="sidebar-divider my-0">
       <li class="nav-item">
@@ -127,7 +122,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+
 
          <?php echo $__env->yieldContent('content'); ?>
 
@@ -182,6 +177,11 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="<?php echo e(asset('assets/vendor/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/vendor/jquery/custom.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/vendor/jquery/timeago.js')); ?>"></script>
+  <script src="cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  
+
   <script src="<?php echo e(asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
   <!-- Core plugin JavaScript-->

@@ -25,11 +25,7 @@ class RedirectIfAuthenticated
             }
              
              elseif (Auth::user()->user_role==2) {
-                return redirect('employee');
-            }
-
-            elseif (Auth::user()->user_role==3) {
-                return redirect('user');
+                return redirect(url('/'));
             }
         }
 

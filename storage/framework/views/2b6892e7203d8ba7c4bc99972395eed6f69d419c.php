@@ -4,12 +4,13 @@
 <head>
 
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="<?php echo e(asset('assets/img/logo.png')); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Project-Sekido</title>
+  <title>Hozzby-Support</title>
 
   <!-- Custom fonts for this template-->
   <link href="<?php echo e(asset('assets/vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
@@ -19,6 +20,7 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo e(asset('assets/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/Customstyle.css')); ?>">
+  <link href="<?php echo e(asset('assets/css/custom.css')); ?>" rel="stylesheet">
    
 </head>
 
@@ -35,7 +37,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Project<sup>Sekido</sup></div>       
+        <div class="sidebar-brand-text mx-3">Hozzby<sup>Support</sup></div>       
       </a>
 
       <hr class="sidebar-divider my-0">
@@ -62,15 +64,19 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item
-      <?php if($segment=='manage_users'): ?>
-      active
-      <?php endif; ?>
-
-      ">
+      <li class="nav-item">
         <a class="nav-link" href="<?php echo e(route('manage_users.index')); ?>">
           <i class="fas fa-fw fa-user-plus"></i>
-          <span>Manage users</span></a>
+          <span>View All User</span></a>
+      </li>
+            <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item <?php if($segment=='allEmployee'): ?>
+      active
+      <?php endif; ?>">
+        <a class="nav-link" href="<?php echo e(url('/admin/allEmployee')); ?>">
+          <i class="fas fa-fw fa-user-circle"></i>
+          <span>View All Employees</span></a>
       </li>
             <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -172,7 +178,7 @@
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
           <a class="btn btn-primary" href="<?php echo e(route('logout')); ?>"onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><?php echo e(__('Logout')); ?></a>
-
+x
 
                 <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                   <?php echo csrf_field(); ?>
@@ -187,10 +193,16 @@
 
   <!-- Bootstrap core JavaScript-->
   <script src="<?php echo e(asset('assets/vendor/jquery/jquery.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/vendor/jquery/custom.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/vendor/jquery/timeago.js')); ?>"></script>
+
   <script src="<?php echo e(asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="<?php echo e(asset('assets/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/vendor/jquery/custom.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/js/custom.js')); ?>"></script>
+
 
   <!-- Custom scripts for all pages-->
   <script src="<?php echo e(asset('assets/js/sb-admin-2.min.js')); ?>"></script>

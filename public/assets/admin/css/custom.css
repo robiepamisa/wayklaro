@@ -1,0 +1,14 @@
+#imgPro {
+    width: 358px;
+    height: 241px;
+}
+.divWidthH {
+    margin-left: auto;
+    margin-right: auto;
+}
+.descriptText {
+    white-space: nowrap;
+    width: 10px;
+    overflow: hidden;
+    text-overflow: "----";
+}

@@ -17,10 +17,6 @@ class AddRoleToRoleTable extends Migration
             'role_name' => 'admin'
         ));
 
-         DB::table('role')->insert(array(
-            'role_name' => 'employee'
-        ));
-
           DB::table('role')->insert(array(
             'role_name' => 'user'
         ));
