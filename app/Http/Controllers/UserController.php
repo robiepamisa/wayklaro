@@ -159,4 +159,11 @@ class UserController extends Controller
     {
         dd($request->all());
     }
+
+    public function checkout()
+    {
+        $category = Category::All();
+        
+        return view('user.checkout',compact('category'));
+    }
 }
