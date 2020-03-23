@@ -59,7 +59,7 @@
                   <tr>
                     <td class="tm-product-name">{{$p->name}}</td>
                     <td>${{$p->price}}</td>
-                    <td>{{$p->categories->category_name}}</td>
+                    <td>@if($p->category_id == 0)No category @else{{$p->categories->category_name}} @endif</td>
                     <td>{{$p->status}}</td>
                     <td>
                       <a href="{{url('admin/edit-product')}}/{{$p->id}}" class="tm-product-delete-link">

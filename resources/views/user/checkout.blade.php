@@ -29,6 +29,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/asset/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/asset/css/main.css')}}">
+	<script src="https://www.paypal.com/sdk/js?client-id=ASfyTOwzzMiw1fDXPHlU1P62udhw8AfRH6aU3Jt9O_MvNhLICEC0qNEj1OLqt5rvJS8BnqyBq3ClWaR1&currency=PHP"></script>
+
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -94,7 +96,7 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="{{asset('assets/asset/js/main.js')}}"></script>
-<script src="https://www.paypal.com/sdk/js?client-id=ASfyTOwzzMiw1fDXPHlU1P62udhw8AfRH6aU3Jt9O_MvNhLICEC0qNEj1OLqt5rvJS8BnqyBq3ClWaR1"></script>
 	<script>paypal.Buttons().render('#paypalButton');</script>
+	
 </body>
 </html>

@@ -74,7 +74,7 @@
                       id="category"
                       name="Category"
                     >
-                      <option selected>Select category</option>
+                      <option selected value="0">Select category</option>
                       @foreach($category as $cat)
                       <option value="{{$cat->id}}">{{$cat->category_name}}</option>
                       @endforeach

@@ -108,7 +108,7 @@
 					<div class="row grid">
 						@if(isset($product))
 						@foreach($product as $p)
-						<div class="parentDiv col-sm-12 col-md-6 col-lg-4 p-b-50 {{$p->categories->category_name}}">
+						<div class="parentDiv col-sm-12 col-md-6 col-lg-4 p-b-50 @if($p->category_id == 0) * @else {{$p->categories->category_name}} @endif">
 							<div class="block2">
 								<div class="block2-img wrap-pic-w of-hidden pos-relative">
 									<img class="imgPath" src="{{asset('images/products')}}/{{$p->image_path}}" alt="IMG-PRODUCT" style="height:360px !important">
