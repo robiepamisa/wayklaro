@@ -6,6 +6,7 @@ use App\Priority;
 use App\User;
 use Auth;
 use App\Role;
+use App\Products;
 use App\Logs;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -165,5 +166,12 @@ class UserController extends Controller
         $category = Category::All();
         
         return view('user.checkout',compact('category'));
+    }
+
+    public function viewProduct($id)
+    {
+        $product = Products::where('id',$id)->first();
+        $category = Category::all();
+        return view('user.viewProduct',compact('category','product'));
     }
 }

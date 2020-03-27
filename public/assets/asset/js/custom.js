@@ -61,4 +61,14 @@ $(document).ready(function() {
             .val();
         console.log(id);
     });
+
+    $(".ProductButton").click(function() {
+        console.log("asdasd");
+        var productID = $(this)
+            .closest(".block2-btn-addcart")
+            .children("input.proID")
+            .val();
+        var getUrl = window.location;
+        console.log(getUrl);
+    });
 });

@@ -26,6 +26,7 @@ Route::get('/viewCart','CartController@viewCartPage')->middleware('auth');
 Route::get('/about','HomeController@viewAbout')->middleware('auth');
 Route::POST('/update-cart','UserController@updateCart')->middleware('auth');
 Route::get('/checkout','UserController@checkout')->middleware('auth');
+Route::get('/product/{id}','UserController@viewProduct');
 
 
 Route::group(['prefix' => 'admin','middleware' => ['adminrole']], function(){

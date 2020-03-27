@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-3">
             <a
-              href="{{url('admin/add-product')}}"
+              href="{{url('admin/categories')}}"
               class="btn btn-primary btn-block text-uppercase mb-3">Add new category</a>
             </div>
 

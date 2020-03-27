@@ -122,10 +122,17 @@
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
 											<input type="hidden" class="proID" value="{{$p->id}}">
+											
 											<button class="cartButton flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 												Add to Cart
 											</button>
+											<a href="product/{{$p->id}}" class="ProductButton flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+												View
+											</a>
+											
 										</div>
+										
+										
 									</div>
 								</div>
 
